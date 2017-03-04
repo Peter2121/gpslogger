@@ -1,4 +1,5 @@
 .gradle
 /local.properties
 /.idea/workspace.xml
+/GPSLogger/src/main/res/values/private.xml
 .DS_Store
