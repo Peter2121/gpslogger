@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="osm_consumerkey">12345678900</string>
-    <string name="osm_consumersecret">00987654321</string>
+    <string name="osm_consumerkey">123456789</string>
+    <string name="osm_consumersecret">987654321</string>
 </resources>
