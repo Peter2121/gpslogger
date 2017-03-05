@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.AsyncTask;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -38,6 +39,89 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
 
     private static OAuthProvider provider;
     private static OAuthConsumer consumer;
+
+    private class asyncRetrieveRequestTokenTask extends AsyncTask<Void, Void, String>
+    {
+
+        protected String doInBackground(Void...v)
+        {
+            String authUrl = null;
+            try {
+                authUrl = provider.retrieveRequestToken(consumer, OAuth.OUT_OF_BAND);
+            }
+            catch (Exception e)
+            {
+                Utilities.LogError("OSMAuthorizationActivity.asyncRetrieveRequestToken", e);
+            }
+            return authUrl;
+        }
+
+        protected void onPostExecute(String result) {
+            if(result!=null )
+            {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("osm_requesttoken", consumer.getToken());
+                editor.putString("osm_requesttokensecret", consumer.getTokenSecret());
+                editor.commit();
+
+                //Open browser, send user to OpenStreetMap.org
+                Uri uri = Uri.parse(result);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+            else
+            {
+                Utilities.MsgBox(getString(R.string.sorry), getString(R.string.osm_auth_error),
+                        OSMAuthorizationActivity.this);
+            }
+        }
+    }
+
+    private class asyncRetrieveAccessTokenTask extends AsyncTask<String, Void, Boolean>
+    {
+        protected Boolean doInBackground(String... s)
+        {
+            Boolean ret = false;
+            String oAuthVerifier = s[0];
+            try
+            {
+                provider.retrieveAccessToken(consumer, oAuthVerifier);
+                ret = true;
+            }
+            catch (Exception e)
+            {
+                Utilities.LogError("OSMAuthorizationActivity.asyncRetrieveAccessTokenTask", e);
+            }
+            return ret;
+        }
+
+        protected void onPostExecute(Boolean result)
+        {
+            if(result)
+            {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+                String osmAccessToken = consumer.getToken();
+                String osmAccessTokenSecret = consumer.getTokenSecret();
+
+                //Save for use later.
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("osm_accesstoken", osmAccessToken);
+                editor.putString("osm_accesstokensecret", osmAccessTokenSecret);
+                editor.commit();
+
+                //Now go away
+                startActivity(new Intent(getApplicationContext(), GpsMainActivity.class));
+                finish();
+            }
+            else
+            {
+                Utilities.MsgBox(getString(R.string.sorry), getString(R.string.osm_auth_error),
+                        OSMAuthorizationActivity.this);
+            }
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -60,7 +144,7 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
 
             try
             {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+//                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
                 if (provider == null)
                 {
@@ -74,8 +158,9 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
                 }
 
                 //Ask OpenStreetMap for the access token. This is the main event.
-                provider.retrieveAccessToken(consumer, oAuthVerifier);
-
+//                provider.retrieveAccessToken(consumer, oAuthVerifier);
+                new asyncRetrieveAccessTokenTask().execute(oAuthVerifier);
+                /*
                 String osmAccessToken = consumer.getToken();
                 String osmAccessTokenSecret = consumer.getTokenSecret();
 
@@ -88,7 +173,7 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
                 //Now go away
                 startActivity(new Intent(getApplicationContext(), GpsMainActivity.class));
                 finish();
-
+                */
             }
             catch (Exception e)
             {
@@ -96,7 +181,6 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
                 Utilities.MsgBox(getString(R.string.sorry), getString(R.string.osm_auth_error), this);
             }
         }
-
 
         Preference visibilityPref = findPreference("osm_visibility");
         Preference descriptionPref = findPreference("osm_description");
@@ -146,7 +230,8 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
                         //User clicks. Set the consumer and provider up.
                         consumer = OSMHelper.GetOSMAuthConsumer(getApplicationContext());
                         provider = OSMHelper.GetOSMAuthProvider(getApplicationContext());
-
+                        new asyncRetrieveRequestTokenTask().execute();
+/*
                         String authUrl;
 
                         //Get the request token and request token secret
@@ -163,7 +248,7 @@ public class OSMAuthorizationActivity extends SherlockPreferenceActivity
                         Uri uri = Uri.parse(authUrl);
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
-
+*/
                     }
                     catch (Exception e)
                     {
