@@ -62,4 +62,5 @@ dependencies {
     compile 'org.apache.httpcomponents:httpmime:4.3.3'
     compile 'oauth.signpost:signpost-commonshttp4:1.2.1.2'
     compile 'com.loopj.android:android-async-http:1.4.4'
+    compile files('libs/json-simple-1.1.1.jar')
 }
