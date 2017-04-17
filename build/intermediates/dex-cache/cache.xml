@@ -14,6 +14,24 @@
         revision="19.1.0"
         sha1="d1257cbff6faa44c1f325ae0d9413522d4644383"/>
     <item
+        dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/json-simple-1.1.1-eac78bfe5a91d84056e7349e4676f43e3c129873.jar"
+        jar="/home/peter/Projects/gpslogger-para-peter/GPSLogger/libs/json-simple-1.1.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="5d6f9b6a9ddca2a28c0216cc44efb2e20d9c23b5"/>
+    <item
+        dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/classes-c80c49f8f4b82e3d51ed49e0ad3186e4a85de46a.jar"
+        jar="/home/peter/Projects/gpslogger-para-peter/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="af64527b748983a75de9c0756e9768b56b240a49"/>
+    <item
+        dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/signpost-commonshttp4-1.2.1.2-55bbc92963078c7f37f6237746d6ea39652ac75d.jar"
+        jar="/home/peter/.gradle/caches/modules-2/files-2.1/oauth.signpost/signpost-commonshttp4/1.2.1.2/731e05de30cfeb1f41d417f886277f9597fe0f36/signpost-commonshttp4-1.2.1.2.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="731e05de30cfeb1f41d417f886277f9597fe0f36"/>
+    <item
         dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/commons-codec-1.6-5590b59c97d44585ddde5a2cd6a5163c76636b64.jar"
         jar="/home/peter/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar"
         jumboMode="false"
@@ -50,12 +68,6 @@
         revision="19.1.0"
         sha1="428e267abff0d10802ccde86b915da2c20471160"/>
     <item
-        dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/classes-c80c49f8f4b82e3d51ed49e0ad3186e4a85de46a.jar"
-        jar="/home/peter/Projects/gpslogger-para-peter/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="af64527b748983a75de9c0756e9768b56b240a49"/>
-    <item
         dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/dropbox-android-sdk-4ead90414454f02c4243beb3f666d442b7582a40.jar"
         jar="/home/peter/Projects/gpslogger-para-peter/GPSLogger/libs/dropbox-android-sdk.jar"
         jumboMode="false"
@@ -67,11 +79,5 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="31fbbff1ddbf98f3aa7377c94d33b0447c646b6e"/>
-    <item
-        dex="/home/peter/Projects/gpslogger-para-peter/GPSLogger/build/intermediates/pre-dexed/debug/signpost-commonshttp4-1.2.1.2-55bbc92963078c7f37f6237746d6ea39652ac75d.jar"
-        jar="/home/peter/.gradle/caches/modules-2/files-2.1/oauth.signpost/signpost-commonshttp4/1.2.1.2/731e05de30cfeb1f41d417f886277f9597fe0f36/signpost-commonshttp4-1.2.1.2.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="731e05de30cfeb1f41d417f886277f9597fe0f36"/>
 
 </pre-dex-items>
