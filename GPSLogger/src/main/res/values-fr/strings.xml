@@ -37,8 +37,8 @@
   <string name="txt_satellites">Satellites :</string>
   <string name="txt_accuracy">Précision:</string>
   <string name="txt_travel_distance">Parcouru:</string>
-  <string name="btn_start_logging">Début enregistrement</string>
-  <string name="btn_stop_logging">Arrêt enregistrement</string>
+  <string name="btn_start_logging">Démarrer enregistrement</string>
+  <string name="btn_stop_logging">Arrêter enregistrement</string>
   <string name="gpslogger_still_running">GPSLogger est toujours en exécution.</string>
   <string name="summary_loggingto">Enregistrement sur:</string>
   <string name="summary_loggingto_screen">Écran seulement</string>
@@ -49,7 +49,7 @@
   <string name="summary_current_filename">Fichier:</string>
   <string name="summary_current_filename_format">%s (dans votre dossier GPSLogger)</string>
   <string name="sharing_location_only">Location seulement</string>
-  <string name="sharing_pick_file">Choisissez un fichier à partager</string>
+  <string name="sharing_pick_file">Choisissez le fichier à partager</string>
   <string name="sharing_mylocation">Ma location</string>
   <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Partager par</string>
@@ -58,12 +58,12 @@
   <string name="meter">Mètre</string>
   <string name="meters">Mètres</string>
   <string name="error">Erreur</string>
-  <string name="error_connection">Erreur de connexion. S\'il vous plaît vérifier les paramètres du cellulaire.</string>
+  <string name="error_connection">Erreur de connexion. Vérifiez les paramètres GPRS.</string>
   <string name="gpsprovider_unavailable">Pas de service GPS disponible.</string>
-  <string name="started">Débuté</string>
+  <string name="started">Démarré</string>
   <string name="providername_using"> (Utilisation %s)</string>
   <string name="providername_gps">Satellites GPS</string>
-  <string name="providername_celltower">Tours  cellulaires</string>
+  <string name="providername_celltower">Tours cellulaires</string>
   <string name="not_applicable">n/a</string>
   <string name="meters_per_second"> m/s</string>
   <string name="feet_per_second"> FT/s</string>
@@ -118,12 +118,12 @@
   <string name="log_kml_summary">Crée un fichier KML dans le dossier GPSLogger sur la carte SD.</string>
   <string name="log_plain_text_title">Enregistrer au format texte brut</string>
   <string name="log_plain_text_summary">Crée un fichier au format texte brut dans le dossier GPSLogger de la carte SD.</string>
-  <string name="new_file_creation_title">Nouvelle création du fichier</string>
-  <string name="new_file_creation_summary">Que ce soit de créer un nouveau fichier une fois par jour ou chaque fois que vous démarrez.</string>
+  <string name="new_file_creation_title">Nouveau fichier</string>
+  <string name="new_file_creation_summary">Créer un nouveau fichier une fois par jour ou chaque fois que vous démarrez.</string>
   <string name="new_file_creation_onceaday">Une fois par jour</string>
   <string name="new_file_creation_everystart">Chaque fois que je démarre</string>
   <string name="pref_performance_title">Performance</string>
-  <string name="prefer_celltower_title">Préfère tours cellulaires</string>
+  <string name="prefer_celltower_title">Préfèrer tours cellulaires</string>
   <string name="prefer_celltower_summary">Utilise tours cellulaires plutôt que  satellites. Moins précis, mais permet d\'économiser la batterie.</string>
   <string name="time_before_logging_title">Temps avant l\'enregistrement</string>
   <string name="time_before_logging_summary">Utilisez 0 pour la fréquence maximale, mais plus lente est mieux pour la vie de la batterie.</string>
@@ -147,7 +147,7 @@
   <string name="startonbootup_summary">Lancement application et démarrage enregistrement lorsque le cellulaire démarre</string>
   <string name="autoemail_title">Configuration email automatique</string>
   <string name="autoemail_summary">Emails automatique du  fichier d\'enregistrement à une adresse de votre choix</string>
-  <string name="please_wait">Attendre s\'il vous plaît.</string>
+  <string name="please_wait">Attendez s\'il vous plaît.</string>
   <string name="autoemail_autosend">Activer les courriels</string>
   <string name="autoemail_autosend_summary">Permet d\'envoyer le fichier enregistrements à une adresse email de votre choix.</string>
   <string name="autoemail_target">Adresses de courriel ciblées</string>
@@ -169,7 +169,7 @@
   <string name="autoemail_port">Port</string>
   <string name="autoemail_port_summary">Port SMTP</string>
   <string name="autoemail_ssl">Utiliser SSL ?</string>
-  <string name="autoemail_ssl_summary">Essayez ce basculement si vous ne pouvez pas vous connecter</string>
+  <string name="autoemail_ssl_summary">Essayez de modifier si vous ne pouvez pas vous connecter</string>
   <string name="autoemail_server">Serveur SMTP</string>
   <string name="autoemail_server_summary">Nom d\'hôte du serveur SMTP à utiliser</string>
   <string name="autoemail_choosepreset">Fournisseur de messagerie électronique</string>
@@ -179,9 +179,9 @@
   <string name="autoemail_sendingtest">Envoi d\'un email de test</string>
   <string name="autoemail_testresult_success">Le courriel a été envoyé</string>
   <string name="autoemail_invalid_form">Valeurs non valides</string>
-  <string name="autoemail_invalid_form_message">Veuillez vous assurer que tous les champs ont été remplis correctement     </string>
+  <string name="autoemail_invalid_form_message">Veuillez vous assurer que tous les champs ont été remplis correctement</string>
   <string name="fix_obtained">Position obtenue</string>
-  <string name="started_waiting">GPS a démarré, en attente de la position</string>
+  <string name="started_waiting">GPS est démarré, en attente de la position</string>
   <string name="gps_stopped">GPS arrêté</string>
   <string name="stopped">Arrêté</string>
   <string name="stopped_low_batt">Arrêté batterie faible</string>
@@ -210,13 +210,13 @@
   <string name="osm_resetauth_summary">Supprimer l\'autorisation locale utilisée pour communiquer avec votre compte OSM.</string>
   <string name="osm_auth_error">Une erreur s\'est produite lors de la connexion aux serveurs OpenStreetMap. Vérifier la connectivité de votre téléphone ou essayer plus tard.</string>
   <string name="osm_visibility">Visibilité</string>
-  <string name="osm_visibility_summary">Définir la visibilité de vos téléchargements de traces GPS</string>
+  <string name="osm_visibility_summary">Définir la visibilité de vos traces GPS</string>
   <string name="osm_description">Description</string>
-  <string name="osm_description_summary">La description à employer lors du téléchargement d\'une trace</string>
+  <string name="osm_description_summary">La description à utiliser lors du téléchargement des traces</string>
   <string name="osm_tags">Labels</string>
-  <string name="osm_tags_summary">Labels à appliquer lors du déchargement d\'une trace</string>
-  <string name="no_files_found">Aucuns fichiers trouvés, rien à partager ou à charger.</string>
-  <string name="osm_pick_file">Choisissez un fichier à décharger</string>
+  <string name="osm_tags_summary">Labels à appliquer lors du déchargement des traces</string>
+  <string name="no_files_found">Aucun fichier trouvé, rien à partager ou à charger.</string>
+  <string name="osm_pick_file">Choisissez un fichier</string>
   <string name="debuglog_title">Écrire dans le fichier de débogage</string>
   <string name="debuglog_summary">Écrire les messages de débogage dans un fichier sur la carte SD. Avertissement : La taille du fichier augmente très rapidement.     </string>
   <string name="pref_logging_summary">Temps, distance, création de fichier</string>
@@ -228,25 +228,25 @@
   <string name="emailprovider_manual">Entrée manuelle</string>
   <string name="btn_single_point">Enregistrer un seul point</string>
   <string name="dropbox_setup_title">Dropbox</string>
-  <string name="dropbox_setup_summary">Autoriser le déchargement de fichier avec Dropbox</string>
-  <string name="dropbox_authorize_description">Pour utiliser les fonctionnalités de Dropbox, vous devrez autoriser GPSLogger à décharger des fichiers vers votre compte.     </string>
-  <string name="dropbox_authorize">Permettre</string>
+  <string name="dropbox_setup_summary">Autoriser upload de fichier vers Dropbox</string>
+  <string name="dropbox_authorize_description">Pour utiliser les fonctionnalités de Dropbox, vous devrez autoriser GPSLogger à télécharger des fichiers vers votre compte.</string>
+  <string name="dropbox_authorize">Autoriser</string>
   <string name="dropbox_unauthorize">Supprimer la permission</string>
-  <string name="dropbox_unauthorize_description">Vous êtes authentifié à Dropbox. Les fichiers seront déchargés vers \'Apps\\GPSLogger for Android\'. Vous pouvez dissocier GPSLogger de Dropbox si vous le souhaitez.     </string>
-  <string name="dropbox_couldnotauthorize">Ne peut pas être authentifié par Dropbox. Essayer ultérieurement.</string>
+  <string name="dropbox_unauthorize_description">Vous êtes authentifié à Dropbox. Les fichiers seront posés vers \'Apps\\GPSLogger for Android\'. Vous pouvez dissocier GPSLogger de Dropbox si vous le souhaitez.</string>
+  <string name="dropbox_couldnotauthorize">Impossible s\'authentifier par Dropbox. Essayer ultérieurement.</string>
   <string name="dropbox_upload">Dropbox</string>
-  <string name="menu_upload">Décharger</string>
+  <string name="menu_upload">Upload</string>
   <string name="autoemail_from">A partir de l\'adresse</string>
-  <string name="autoemail_from_summary">Certains fournisseurs de messagerie électronique requièrent une adresse \'De\'. Utiliser uniquement si vous en avez besoin.     </string>
+  <string name="autoemail_from_summary">Certains fournisseurs de messagerie électronique requièrent une adresse \'De\'. Utiliser uniquement si vous en avez besoin.</string>
   <string name="gdocs_upload">Google Docs</string>
-  <string name="gdocs_settings_screenname">Paramètres de déchargement Google Docs</string>
-  <string name="gdocs_startauthorization">Authentifié avec Google Docs</string>
+  <string name="gdocs_settings_screenname">Paramètres de téléchargement Google Docs</string>
+  <string name="gdocs_startauthorization">Authentifier avec Google Docs</string>
   <string name="gdocs_authorize_summary">Lien vers Google Docs où vous devez autoriser GPSLogger</string>
   <string name="gdocs_clearauthorization">Effacer les autorisations</string>
   <string name="gdocs_clearauthorization_summary">Oublier les réglages GDocs locaux. Pour révoquer de façon définitive l\'accès, allez aux réglages du compte Google.</string>
   <string name="gdocs_setup_title">Google Docs</string>
-  <string name="gdocs_setup_summary">Autorisé par Google Docs à décharger des documents</string>
-  <string name="gdocs_test_summary">Décharger un fichier test vers Google Docs</string>
+  <string name="gdocs_setup_summary">Autorisé par Google Docs à télécharger des fichiers</string>
+  <string name="gdocs_test_summary">Upload un fichier de test vers Google Docs</string>
   <string name="gdocs_test_title">Essai d\'envoi</string>
   <string name="gdocs_testupload_error">Impossible d\'envoyer le fichier test</string>
   <string name="gdocs_testupload_success">Envoyé. Veuillez vérifier vos nouveaux documents Google.</string>
@@ -258,7 +258,7 @@
   <string name="autosend_frequency_summary">À quelle fréquence les enregistrements doivent-ils être envoyés?</string>
   <string name="autosend_frequency">Combien de fois ?</string>
   <string name="autosend_sendzip_title">Envoyer le fichier zip</string>
-  <string name="autosend_sendzip_summary">Si possible, envoyer un fichier zip. Désactiver pour envoyer en fichiers individuels, ou si l\'option zip ne fonctionne pas     </string>
+  <string name="autosend_sendzip_summary">Si possible, envoyer un fichier zip. Désactiver pour envoyer en fichiers individuels, ou si l\'option zip ne fonctionne pas.</string>
   <string name="autosend_targets_category">Cibles d\'envoi automatique</string>
   <string name="menu_email_now">Envoyer automatiquement maintenant</string>
   <string name="autosend_sending">Envoi automatique</string>
@@ -277,7 +277,7 @@
   <string name="skylines_interval">Frequence de pointage, sec</string>
   <string name="skylines_interval_summary">Frequence de recuperation de données GPS</string>
 
-  <string name="log_livetrack24_summary">Envoyer les données GPS au serveur de live tracking (leonardo, FFVL, ...).</string>
+  <string name="log_livetrack24_summary">Envoyer les données GPS au serveur livetrack24 (Leonardo live, FFVL, ...).</string>
   <string name="livetrack24_setup_summary">Envoyer les données GPS au serveur livetrack24</string>
   <string name="livetrack24_enabled">Activer livetrack24</string>
   <string name="livetrack24_enabled_summary">Activer ce serveur livetrack24.</string>
@@ -289,7 +289,7 @@
   <string name="livetrack24_interval_summary">Frequence de recuperation de données GPS</string>
 
   <string name="log_opengts_title">Connexion au serveur OpenGTS</string>
-  <string name="log_opengts_summary">Envoyer les données GPRMC sur un serveur en ligne OpenGTS.</string>
+  <string name="log_opengts_summary">Envoyer les données GPRMC vers un serveur OpenGTS.</string>
   <string name="opengts_setup_title">Réglages OpenGTS</string>
   <string name="opengts_setup_summary">Envoyer les traces GPS à un serveur OpenGTS de votre choix.</string>
   <string name="opengts_enabled">Activer OpenGTS</string>
@@ -329,5 +329,5 @@
   <string name="autoftp_enabled">FTP activé</string>
   <string name="ftp_upload">Transfert FTP</string>
   <string name="autoftp_setup_title">Configuration FTP</string>
-  <string name="autoftp_setup_summary">Transférer vos fichiers vers un serveur FTP (S). Remarque : Ceci ne concerne pas SFTP.</string>
+  <string name="autoftp_setup_summary">Transférer vos fichiers vers un serveur FTP(S). Remarque : Ceci ne concerne pas SFTP.</string>
 </resources>
