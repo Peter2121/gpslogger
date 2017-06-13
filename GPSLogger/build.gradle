@@ -2,43 +2,38 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.1.0"
-
+    buildToolsVersion '19.1.0'
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 19
-        versionCode 20170508
-        versionName "20170508FT"
+        versionCode 20170613
+        versionName '20170613FT'
     }
-
-     signingConfigs {
-
+    signingConfigs {
         release {
-            storeFile file("/home/peter/XXXXXX.jks")
-            storePassword "*******"
-            keyAlias "XXXXX"
-            keyPassword "*******"
+            storeFile file('/home/peter/geeksville-android-key1.jks')
+            storePassword 'tresor'
+            keyAlias 'geeksville-android-key'
+            keyPassword 'tresor'
         }
     }
-
     buildTypes {
         releaseSigned {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             signingConfig signingConfigs.release
         }
-
         releaseUnsigned {
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
-
+        debug {
+            debuggable false
+        }
     }
-
     lintOptions {
-       abortOnError false
+        abortOnError false
     }
-
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
         exclude 'META-INF/LICENSE.txt'
@@ -51,7 +46,8 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
     }
-
+    productFlavors {
+    }
 }
 
 dependencies {

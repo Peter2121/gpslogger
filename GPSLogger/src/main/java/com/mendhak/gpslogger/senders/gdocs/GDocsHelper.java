@@ -429,6 +429,12 @@ public class GDocsHelper implements IActionListener, IFileSender
                     gpsLoggerFolderFeed = CreateFolder();
                 }
 
+                if (Utilities.IsNullOrEmpty(gpsLoggerFolderFeed))
+                {
+                    Utilities.LogWarning("GDocsUploadHandler - cannot create GPSLogger folder in GDocs");
+                    callback.OnFailure();
+                }
+
                 FileAccessLocations fileSearch = SearchForFile(gpsLoggerFolderFeed, fileName);
 
                 if (Utilities.IsNullOrEmpty(fileSearch.UpdateUrl))
@@ -706,7 +712,7 @@ public class GDocsHelper implements IActionListener, IFileSender
 
             String folderFeedUrl = "";
 
-            String searchUrl = "https://docs.google.com/feeds/default/private/full?title=GPSLogger+For+Android&showfolders=true";
+            String searchUrl = "https://docs.google.com/feeds/default/private/full?title=GPSLogger&showfolders=true";
             HttpURLConnection conn = null;
 
             try

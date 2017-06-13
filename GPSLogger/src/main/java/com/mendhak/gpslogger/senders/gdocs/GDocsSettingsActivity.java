@@ -140,13 +140,15 @@ public class GDocsSettingsActivity extends SherlockPreferenceActivity
 
     private void Authorize()
     {
+        /*
         accountManager = GDocsHelper.GetAccountManager(getApplicationContext());
 
         if (GDocsHelper.GetAccounts(accountManager).length > 0)
         {
             showDialog(0);  //Invokes onCreateDialog
         }
-
+        */
+        Utilities.MsgBox(getString(R.string.sorry), getString(R.string.pref_not_available), this);
     }
 
 

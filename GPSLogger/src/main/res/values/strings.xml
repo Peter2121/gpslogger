@@ -219,7 +219,7 @@
     <string name="accuracy_before_logging_summary">Which min. accuracy to for logging. Use 0 to log all
         points.
     </string>
-
+    <string name="pref_not_available">Not available in this version</string>
     <string name="useimperial_title">Use Imperial units</string>
     <string name="useimperial_summary">Use feet, miles and pints, none of that newfangled metric stuff.</string>
     <string name="msg_template_title">Message template</string>
