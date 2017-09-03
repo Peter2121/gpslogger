@@ -40,6 +40,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -967,12 +968,23 @@ public class Utilities
             int lats=(int)latsd;
             int lons=(int)lonsd;
 
+            /*
             String slatdd = String.format("%.6f",latdd);
             String slondd = String.format("%.6f",londd);
             String slatmd = String.format("%.4f",latmd);
             String slonmd = String.format("%.4f",lonmd);
             String slatsd = String.format("%.2f",latsd);
             String slonsd = String.format("%.2f",lonsd);
+            */
+            // Temporary fix to always use US locale in messages
+            // TODO: add settings to force certain decimal separator or locale
+            String slatdd = String.format(Locale.US,"%.6f",latdd);
+            String slondd = String.format(Locale.US,"%.6f",londd);
+            String slatmd = String.format(Locale.US,"%.4f",latmd);
+            String slonmd = String.format(Locale.US,"%.4f",lonmd);
+            String slatsd = String.format(Locale.US,"%.2f",latsd);
+            String slonsd = String.format(Locale.US,"%.2f",lonsd);
+
             String slatd = String.format("%d",latd);
             String slond = String.format("%d",lond);
             String slatm = String.format("%d",latm);
