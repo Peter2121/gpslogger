@@ -113,7 +113,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        String path;
+//        String path;
 
         Utilities.LogDebug("GpsMainActivity.onCreate");
 
@@ -134,8 +134,8 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
                 else confImport="";
         }
 
-        path = Environment.getExternalStorageDirectory() + File.separator + "GPSLogger";
-        prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", path);
+        Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
+        prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
         this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 //        serviceIntent = new Intent(this, GpsLoggingService.class);
         if(confImport.length() > 1) prefsio.ImportString(confImport);
@@ -758,7 +758,8 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         {
 
             final String locationOnly = getString(R.string.sharing_location_only);
-            final File gpxFolder = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+//            final File gpxFolder = new File(Environment.getExternalStorageDirectory(), getString(R.string.work_dirname));
+            final File gpxFolder = new File(Session.work_path);
             if (gpxFolder.exists())
             {
 
@@ -985,7 +986,8 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
     private void ShowFileListDialog(final Intent settingsIntent, final IFileSender sender)
     {
 
-        final File gpxFolder = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+//        final File gpxFolder = new File(Environment.getExternalStorageDirectory(), getString(R.string.work_dirname));
+        final File gpxFolder = new File(Session.work_path);
 
         if (gpxFolder.exists())
         {
@@ -1214,6 +1216,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
      */
     private void SetSatelliteInfo(int number)
     {
+        CheckSessionStatus();
         Session.setSatelliteCount(number);
         FragmentManager fm = getSupportFragmentManager();
 
@@ -1264,6 +1267,10 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         }
     }
 
+    public void CheckSessionStatus() {
+
+    }
+
     @Override
     public void OnLocationUpdate(Location loc)
     {
@@ -1276,6 +1283,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
     @Override
     public void OnSatelliteCount(int count)
     {
+        Utilities.LogDebug("SetSatelliteInfo: "+count);
         SetSatelliteInfo(count);
     }
 

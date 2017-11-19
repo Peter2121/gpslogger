@@ -30,6 +30,8 @@ import com.mendhak.gpslogger.senders.gdocs.GDocsHelper;
 import com.mendhak.gpslogger.senders.opengts.OpenGTSHelper;
 import com.mendhak.gpslogger.senders.osm.OSMHelper;
 
+import net.kataplop.gpslogger.R;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
@@ -75,8 +77,8 @@ public class FileSenderFactory
 
         final String currentFileName = Session.getCurrentFileName();
 
-        File gpxFolder = new File(Environment.getExternalStorageDirectory(),
-                "GPSLogger");
+//        File gpxFolder = new File(Environment.getExternalStorageDirectory(), applicationContext.getString(R.string.work_dirname));
+        File gpxFolder = new File(Session.work_path);
 
         if (!gpxFolder.exists())
         {

@@ -119,7 +119,7 @@ class GeneralLocationListener implements LocationListener, GpsStatus.Listener
                     it.next();
                     count++;
                 }
-
+                Utilities.LogDebug(count + " satellites visible");
                 mainActivity.SetSatelliteInfo(count);
                 break;
 

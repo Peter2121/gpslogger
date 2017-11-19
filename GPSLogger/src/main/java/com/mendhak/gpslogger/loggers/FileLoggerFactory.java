@@ -73,7 +73,9 @@ public class FileLoggerFactory
 
     public static List<IFileLogger> GetFileLoggers()
     {
-        File gpx_or_igcFolder = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+//        File gpx_or_igcFolder = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+        File gpx_or_igcFolder = new File(Session.work_path);
+
         if (!gpx_or_igcFolder.exists())
         {
             gpx_or_igcFolder.mkdirs();

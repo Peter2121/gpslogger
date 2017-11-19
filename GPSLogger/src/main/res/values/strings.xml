@@ -12,6 +12,8 @@
     </string>
     <string name="add_description">Add a description</string>
     <string name="letters_numbers">Use only letters and numbers</string>
+    <string name="session_filename">.session</string>
+    <string name="work_dirname">GPSLogger</string>
 
     <!-- menu strings -->
     <string name="menu_settings">Settings</string>

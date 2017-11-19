@@ -52,6 +52,7 @@ public class Session extends Application
     private static boolean waitingForAlarm = false;
 //    private static boolean isSinglePointMode = false;
     private static int retryTimeout=0;
+    public static String work_path="";
 
     public static int retryStartService=0;
     public static long lastPanicRestartService=0L;

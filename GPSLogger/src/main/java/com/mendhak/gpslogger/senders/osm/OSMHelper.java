@@ -156,7 +156,8 @@ public class OSMHelper implements IActionListener, IFileSender
 
     public void UploadFile(String fileName)
     {
-        File gpxFolder = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+//        File gpxFolder = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+        File gpxFolder = new File(com.mendhak.gpslogger.common.Session.work_path);
         File chosenFile = new File(gpxFolder, fileName);
         OAuthConsumer consumer = GetOSMAuthConsumer(ctx);
         String gpsTraceUrl = ctx.getString(R.string.osm_gpstrace_url);

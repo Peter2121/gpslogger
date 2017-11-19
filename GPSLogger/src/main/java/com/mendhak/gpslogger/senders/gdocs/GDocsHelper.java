@@ -364,7 +364,8 @@ public class GDocsHelper implements IActionListener, IFileSender
         {
             AccountManager accountManager = GetAccountManager(ctx);
 
-            File gpsDir = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+//            File gpsDir = new File(Environment.getExternalStorageDirectory(), "GPSLogger");
+            File gpsDir = new File(com.mendhak.gpslogger.common.Session.work_path);
             File gpxFile = new File(gpsDir, fileName);
             FileInputStream fis = new FileInputStream(gpxFile);
 
