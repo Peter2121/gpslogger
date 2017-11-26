@@ -187,6 +187,20 @@ public class GpsLoggingService extends Service implements IActionListener
         stopSelf();
     }
 
+    public void CheckSessionStatus() {
+        if(Session.getLastWaitTime()==0L) return;
+        if(!Session.isStarted()) return;
+        long systime = System.currentTimeMillis();
+        long ks = 2L;
+        if(systime<(Session.getLastTrackTime()+Session.getLastWaitTime()*ks)) return;
+        Utilities.LogDebug("Too much time elapsed since last trackpoint, calling Panic");
+        // Too much time elapsed since last trackpoint
+        // Probably, something goes very bad
+        // We should try to restart anything,
+        // hoping it will go better after restart
+        Panic();
+    }
+
     private void HandleIntent(Intent intent)
     {
 
@@ -433,6 +447,7 @@ public class GpsLoggingService extends Service implements IActionListener
     {
         Utilities.LogDebug("GpsLoggingService.StartLogging");
         Session.setAddNewTrackSegment(true);
+        Session.setLastTrackTime(System.currentTimeMillis());
 
         if (Session.isStarted())
         {
@@ -960,6 +975,7 @@ public class GpsLoggingService extends Service implements IActionListener
                 systime + nextalarm, pi);
 
         Session.setWaitingForAlarm(true);
+        Session.setLastWaitTime(nextalarm - systime);
 
     }
 
@@ -1020,6 +1036,7 @@ public class GpsLoggingService extends Service implements IActionListener
                 {
                     Utilities.LogDebug("Finally write to logger: " + logger.getName() + " at time: " + System.currentTimeMillis());
                     logger.Write(loc);
+                    Session.setLastTrackTime(System.currentTimeMillis());
                     allowdesc=true;
                 }
             }

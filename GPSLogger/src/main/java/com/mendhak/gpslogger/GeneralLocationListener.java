@@ -40,7 +40,7 @@ class GeneralLocationListener implements LocationListener, GpsStatus.Listener
      */
     public void onLocationChanged(Location loc)
     {
-
+        mainActivity.CheckSessionStatus();
 
         try
         {
@@ -96,6 +96,7 @@ class GeneralLocationListener implements LocationListener, GpsStatus.Listener
 
     public void onGpsStatusChanged(int event)
     {
+        mainActivity.CheckSessionStatus();
 
         switch (event)
         {

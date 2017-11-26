@@ -52,8 +52,9 @@ public class Session extends Application
     private static boolean waitingForAlarm = false;
 //    private static boolean isSinglePointMode = false;
     private static int retryTimeout=0;
+    private static long lastTrackTime=0L;
+    private static long lastWaitTime=0L;
     public static String work_path="";
-
     public static int retryStartService=0;
     public static long lastPanicRestartService=0L;
 //    public static boolean isServiceStarting=false;
@@ -415,5 +416,22 @@ public class Session extends Application
     {
         Session.allowDescription = allowDescription;
     }
+
+    public static long getLastWaitTime() {
+        return lastWaitTime;
+    }
+
+    public static void setLastWaitTime(long lastWaitTime) {
+        Session.lastWaitTime = lastWaitTime;
+    }
+
+    public static long getLastTrackTime() {
+        return lastTrackTime;
+    }
+
+    public static void setLastTrackTime(long lastTrackTime) {
+        Session.lastTrackTime = lastTrackTime;
+    }
+
 
 }

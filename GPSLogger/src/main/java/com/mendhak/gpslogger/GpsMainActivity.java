@@ -350,6 +350,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         public void onReceive(Context context, Intent intent) {
             Utilities.LogDebug("Enter BatteryInfoReceiver");
             if (Session.isStarted()) {
+                loggingService.CheckSessionStatus();
                 int plugged= intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
                 if(plugged!=0) return;
                 int level= intent.getIntExtra(BatteryManager.EXTRA_LEVEL,0);
@@ -1216,7 +1217,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
      */
     private void SetSatelliteInfo(int number)
     {
-        CheckSessionStatus();
         Session.setSatelliteCount(number);
         FragmentManager fm = getSupportFragmentManager();
 
@@ -1265,10 +1265,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
                 widget.onLocationChanged(loc);
             }
         }
-    }
-
-    public void CheckSessionStatus() {
-
     }
 
     @Override
