@@ -188,12 +188,15 @@ public class GpsLoggingService extends Service implements IActionListener
     }
 
     public void CheckSessionStatus() {
-        if(Session.getLastWaitTime()==0L) return;
+        if( (Session.getLastWaitTime()==0L) || (Session.getLastTrackTime()==0L) )return;
         if(!Session.isStarted()) return;
         long systime = System.currentTimeMillis();
-        long ks = 2L;
+        long ks = 5L;
+        Utilities.LogDebug("SysTime: "+systime+" LastTrackTime: "+Session.getLastTrackTime()+" LastWaitTime: "+Session.getLastWaitTime());
         if(systime<(Session.getLastTrackTime()+Session.getLastWaitTime()*ks)) return;
         Utilities.LogDebug("Too much time elapsed since last trackpoint, calling Panic");
+        Session.setLastTrackTime(0L);
+        Session.setLastWaitTime(0L);
         // Too much time elapsed since last trackpoint
         // Probably, something goes very bad
         // We should try to restart anything,
@@ -447,7 +450,10 @@ public class GpsLoggingService extends Service implements IActionListener
     {
         Utilities.LogDebug("GpsLoggingService.StartLogging");
         Session.setAddNewTrackSegment(true);
-        Session.setLastTrackTime(System.currentTimeMillis());
+//        Session.setLastTrackTime(System.currentTimeMillis());
+//        Session.setLastWaitTime(0L);
+        Session.setLastWaitTime(getMaxWaitTime());
+        Session.setLastTrackTime(0L);
 
         if (Session.isStarted())
         {
@@ -894,6 +900,27 @@ public class GpsLoggingService extends Service implements IActionListener
         return NextAlarmTime;
     }
 
+    private int getMaxWaitTime() {
+        List<IFileLogger> loggers = Session.getFileLoggers();
+        List<Integer> mwts = new ArrayList<Integer>();
+        int mwt=0;
+        for (IFileLogger logger : loggers)
+        {
+            Utilities.LogDebug("getMaxWaitTime logger:"+logger.getName());
+            mwt=logger.getMinSec();
+            Utilities.LogDebug("MaxWaitTime: "+mwt);
+            mwts.add(mwt);
+        }
+        if(!mwts.isEmpty()) {
+            Integer[] armwt = mwts.toArray(new Integer[mwts.size()]);
+            Arrays.sort(armwt);
+            Utilities.LogDebug("Sorted array of MaxWaitTime: " + Arrays.toString(armwt));
+            mwt = (int) armwt[0];
+        }
+        return mwt;
+
+    }
+
     private void SetDistanceTraveled(Location loc)
     {
         // Distance
@@ -975,7 +1002,7 @@ public class GpsLoggingService extends Service implements IActionListener
                 systime + nextalarm, pi);
 
         Session.setWaitingForAlarm(true);
-        Session.setLastWaitTime(nextalarm - systime);
+//        Session.setLastWaitTime(nextalarm - systime);
 
     }
 
