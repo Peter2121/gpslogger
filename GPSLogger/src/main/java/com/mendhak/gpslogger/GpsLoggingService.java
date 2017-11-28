@@ -188,10 +188,10 @@ public class GpsLoggingService extends Service implements IActionListener
     }
 
     public void CheckSessionStatus() {
-        if( (Session.getLastWaitTime()==0L) || (Session.getLastTrackTime()==0L) )return;
+        if( (Session.getLastWaitTime()==0L) || (Session.getLastTrackTime()==0L) ) return;
         if(!Session.isStarted()) return;
         long systime = System.currentTimeMillis();
-        long ks = 5L;
+        long ks = 4L;
         Utilities.LogDebug("SysTime: "+systime+" LastTrackTime: "+Session.getLastTrackTime()+" LastWaitTime: "+Session.getLastWaitTime());
         if(systime<(Session.getLastTrackTime()+Session.getLastWaitTime()*ks)) return;
         Utilities.LogDebug("Too much time elapsed since last trackpoint, calling Panic");
@@ -452,8 +452,9 @@ public class GpsLoggingService extends Service implements IActionListener
         Session.setAddNewTrackSegment(true);
 //        Session.setLastTrackTime(System.currentTimeMillis());
 //        Session.setLastWaitTime(0L);
-        Session.setLastWaitTime(getMaxWaitTime());
-        Session.setLastTrackTime(0L);
+        long mwt=getMaxWaitTime();
+        Session.setLastWaitTime(mwt);
+        Utilities.LogDebug("MaxWaitTime: "+mwt);
 
         if (Session.isStarted())
         {
@@ -917,7 +918,7 @@ public class GpsLoggingService extends Service implements IActionListener
             Utilities.LogDebug("Sorted array of MaxWaitTime: " + Arrays.toString(armwt));
             mwt = (int) armwt[0];
         }
-        return mwt;
+        return mwt*1000;
 
     }
 

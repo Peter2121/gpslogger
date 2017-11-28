@@ -461,6 +461,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         {
             GetPreferences();
             if(!isBatteryLow()) {
+                Session.setLastTrackTime(0L);
                 loggingService.SetupAutoSendTimers();
                 loggingService.StartLogging();
             }
@@ -488,6 +489,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         if (!Session.isStarted())
         {
             SetMainButtonEnabled(false);
+            Session.setLastTrackTime(0L);
             loggingService.StartLogging();
         }
     }
