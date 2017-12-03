@@ -51,7 +51,6 @@
   <string name="sharing_location_only">Csak a helyzet</string>
   <string name="sharing_pick_file">Válasszon egy fájlt, hogy megossza</string>
   <string name="sharing_mylocation">Helyzetem</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Megosztás</string>
   <string name="foot"> láb</string>
   <string name="feet"> láb</string>

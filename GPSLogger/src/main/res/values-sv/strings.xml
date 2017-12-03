@@ -50,7 +50,6 @@
   <string name="sharing_location_only">Endast plats</string>
   <string name="sharing_pick_file">Välj en fil att dela</string>
   <string name="sharing_mylocation">Min plats</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Dela via</string>
   <string name="foot"> fot</string>
   <string name="feet"> fot</string>

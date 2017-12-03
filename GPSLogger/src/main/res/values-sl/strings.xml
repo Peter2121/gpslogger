@@ -50,7 +50,6 @@
   <string name="sharing_location_only">Samo lokacija</string>
   <string name="sharing_pick_file">Izberite datoteko za deliti</string>
   <string name="sharing_mylocation">Moja lokacija</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Deli preko</string>
   <string name="foot"> foot</string>
   <string name="feet"> feet</string>

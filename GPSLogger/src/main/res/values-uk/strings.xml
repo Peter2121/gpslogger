@@ -50,7 +50,6 @@
   <string name="sharing_location_only">Розташування лише</string>
   <string name="sharing_pick_file">Вибрати файл для обміну</string>
   <string name="sharing_mylocation">Моє місцезнаходження</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Як поділитися за допомогою</string>
   <string name="foot"> фут</string>
   <string name="feet">фути</string>

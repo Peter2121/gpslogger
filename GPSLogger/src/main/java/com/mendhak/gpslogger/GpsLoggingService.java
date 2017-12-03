@@ -448,13 +448,11 @@ public class GpsLoggingService extends Service implements IActionListener
      */
     protected void StartLogging()
     {
+        long mwt=0L;
         Utilities.LogDebug("GpsLoggingService.StartLogging");
         Session.setAddNewTrackSegment(true);
 //        Session.setLastTrackTime(System.currentTimeMillis());
 //        Session.setLastWaitTime(0L);
-        long mwt=getMaxWaitTime();
-        Session.setLastWaitTime(mwt);
-        Utilities.LogDebug("MaxWaitTime: "+mwt);
 
         if (Session.isStarted())
         {
@@ -478,6 +476,10 @@ public class GpsLoggingService extends Service implements IActionListener
         ResetCurrentFileName(true);
         ClearForm();
         Session.setFileLoggers(FileLoggerFactory.GetFileLoggers());
+
+        mwt=getMaxWaitTime();
+        Session.setLastWaitTime(mwt);
+        Utilities.LogDebug("MaxWaitTime: "+mwt);
 
         StartGpsManager();
 
@@ -904,6 +906,7 @@ public class GpsLoggingService extends Service implements IActionListener
     private int getMaxWaitTime() {
         List<IFileLogger> loggers = Session.getFileLoggers();
         List<Integer> mwts = new ArrayList<Integer>();
+        final int MAX_WAIT_TIME = 300;  // 5 min  TODO: get from preferences
         int mwt=0;
         for (IFileLogger logger : loggers)
         {
@@ -918,7 +921,8 @@ public class GpsLoggingService extends Service implements IActionListener
             Utilities.LogDebug("Sorted array of MaxWaitTime: " + Arrays.toString(armwt));
             mwt = (int) armwt[0];
         }
-        return mwt*1000;
+        if(mwt>MAX_WAIT_TIME) return mwt*1000;
+        else return MAX_WAIT_TIME*1000;
 
     }
 
@@ -1056,6 +1060,7 @@ public class GpsLoggingService extends Service implements IActionListener
         double lon = loc.getLongitude();
         double lat = loc.getLatitude();
         boolean allowdesc = false;
+        Session.setLastTrackTime(System.currentTimeMillis());
         for (IFileLogger logger : loggers)
         {
             try
@@ -1064,7 +1069,6 @@ public class GpsLoggingService extends Service implements IActionListener
                 {
                     Utilities.LogDebug("Finally write to logger: " + logger.getName() + " at time: " + System.currentTimeMillis());
                     logger.Write(loc);
-                    Session.setLastTrackTime(System.currentTimeMillis());
                     allowdesc=true;
                 }
             }

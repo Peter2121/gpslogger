@@ -50,7 +50,6 @@
   <string name="sharing_location_only">Alleen locatie</string>
   <string name="sharing_pick_file">﻿Kies een bestand om te delen</string>
   <string name="sharing_mylocation">Mijn locatie</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Delen via</string>
   <string name="foot"> ﻿voet</string>
   <string name="feet"> ﻿voeten</string>

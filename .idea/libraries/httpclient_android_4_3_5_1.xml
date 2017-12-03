@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="httpclient-android-4.3.5.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GPSLogger/libs/httpclient-android-4.3.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

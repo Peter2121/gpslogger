@@ -50,7 +50,6 @@
   <string name="sharing_location_only">Solo posizione</string>
   <string name="sharing_pick_file">Seleziona un file da condividere</string>
   <string name="sharing_mylocation">Mia posizione</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Condividi tramite</string>
   <string name="foot">Piede</string>
   <string name="feet">Piedi</string>

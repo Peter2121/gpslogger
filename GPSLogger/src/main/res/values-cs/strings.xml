@@ -52,7 +52,6 @@
   <string name="sharing_location_only">Pouze umístění</string>
   <string name="sharing_pick_file">Vyberte soubor ke sdílení</string>
   <string name="sharing_mylocation">Moje umístění</string>
-  <string name="sharing_googlemaps_link" formatted="false">http://maps.google.com/maps?q=%s,%s</string>
   <string name="sharing_via">Sdílet pomocí</string>
   <string name="foot"> stopa</string>
   <string name="feet"> stop</string>
