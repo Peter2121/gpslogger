@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 19
-        versionCode 20171202
-        versionName '20171202FT'
+        versionCode 20171203
+        versionName '20171203FT'
     }
     signingConfigs {
         release {
@@ -51,17 +51,21 @@ android {
     }
 }
 
-// TODO: Warning:Dependency org.apache.httpcomponents:httpclient:4.3.3 is ignored for releaseUnsigned
-// TODO: as it may be conflicting with the internal version provided by Android.
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'commons-net:commons-net:2.2'
-    compile 'org.apache.httpcomponents:httpmime:4.3.3'
-//    compile group: 'org.apache.httpcomponents' , name: 'httpclient-android' , version: '4.3.5.1'
-//
-    compile 'oauth.signpost:signpost-commonshttp4:1.2.1.2'
+    //compile 'cz.msebera.android:httpclient:4.4.1.2'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
+    compile ('org.apache.httpcomponents:httpmime:4.3.3'){
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+        }
+    //    compile ('org.apache.httpcomponents:httpcore:4.4.1'){
+    //        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    //    }
+    compile ('oauth.signpost:signpost-commonshttp4:1.2.1.2') {
+        exclude module: 'httpclient'
+    }
     compile 'com.loopj.android:android-async-http:1.4.4'
-//    compile files('libs/json-simple-1.1.1.jar')
 }
