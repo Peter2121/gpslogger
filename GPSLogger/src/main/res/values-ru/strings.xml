@@ -239,7 +239,17 @@
   <string name="abst_logger_maxbufsize_dialog_title">Количество точек в буфере</string>
   <string name="abst_logger_maxbufsize_hint">Количество точек</string>
 
-    <string name="osm_setup_title">OpenStreetMap</string>
+  <string name="maxwaittime_title">Максимальное время ожидания</string>
+  <string name="maxwaittime_summary">Сервис будет перезагружен если в течение данного времени нет попыток отправки точек</string>
+  <string name="maxwaittime_dialog_title">Максимальное время ожидания точки</string>
+  <string name="maxwaittime_hint">Время в секундах</string>
+
+  <string name="maxwaitcycles_title">Максимальное количество циклов ожидания</string>
+  <string name="maxwaitcycles_summary">Сервис будет перезагружен если в течение данного количества циклов трекинга нет попыток отправки точек</string>
+  <string name="maxwaitcycles_dialog_title">Максимальное количество циклов ожидания точки</string>
+  <string name="maxwaitcycles_hint">Количество циклов</string>
+
+  <string name="osm_setup_title">OpenStreetMap</string>
   <string name="osm_setup_summary">Добавляйте теги, описания GPS трекам</string>
   <string name="osm_preferences_title">Настройки OpenStreetMap</string>
   <string name="osm_lbl_authorize">Авторизовать приложение</string>

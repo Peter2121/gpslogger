@@ -365,6 +365,24 @@ public class Utilities
             AppSettings.setALMaxBufSize(al_maxbufsize_default);
         }
 
+        final int maxwaittime_default = 300;    // 5 mins
+
+        try {
+            AppSettings.setMaxWaitTime(Integer.parseInt(prefs.getString("maxwaittime",
+                    Integer.toString(maxwaittime_default))));
+        } catch (Exception e) {
+            AppSettings.setMaxWaitTime(maxwaittime_default);
+        }
+
+        final int maxwaitcycles_default = 4;
+
+        try {
+            AppSettings.setMaxWaitCycles(Integer.parseInt(prefs.getString("maxwaitcycles",
+                    Integer.toString(maxwaitcycles_default))));
+        } catch (Exception e) {
+            AppSettings.setMaxWaitCycles(maxwaitcycles_default);
+        }
+
     }
 
     public static void ShowProgress(Context ctx, String title, String message)

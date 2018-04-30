@@ -102,6 +102,26 @@
                 android:hint="@string/abst_logger_maxbufsize_hint"
                 android:defaultValue="32" />
 
+            <EditTextPreference
+                android:key="maxwaittime"
+                android:title="@string/maxwaittime_title"
+                android:summary="@string/maxwaittime_summary"
+                android:dialogTitle="@string/maxwaittime_title"
+                android:numeric="integer"
+                android:maxLength="5"
+                android:hint="@string/maxwaittime_hint"
+                android:defaultValue="300" />
+
+            <EditTextPreference
+                android:key="maxwaitcycles"
+                android:title="@string/maxwaitcycles_title"
+                android:summary="@string/maxwaitcycles_summary"
+                android:dialogTitle="@string/maxwaitcycles_title"
+                android:numeric="integer"
+                android:maxLength="2"
+                android:hint="@string/maxwaitcycles_hint"
+                android:defaultValue="4" />
+
         </PreferenceScreen>
 
         <PreferenceScreen

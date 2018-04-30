@@ -195,6 +195,16 @@
   <string name="abst_logger_maxbufsize_dialog_title">Nombre de points</string>
   <string name="abst_logger_maxbufsize_hint">Nombre de points</string>
 
+  <string name="maxwaittime_title">Temps max d\'attente</string>
+  <string name="maxwaittime_summary">Watchdog reinitialise le service si rien n\'est tenté d\'envoyer depuis ce temps</string>
+  <string name="maxwaittime_dialog_title">Temps maximum d\'attente d\'un point</string>
+  <string name="maxwaittime_hint">Temps en seconds</string>
+
+  <string name="maxwaitcycles_title">Cycles max d\'attente</string>
+  <string name="maxwaitcycles_summary">Watchdog reinitialise le service si rien n\'est tenté d\'envoyer après N cycles de livetracking</string>
+  <string name="maxwaitcycles_dialog_title">Cycles maximum d\'attente d\'un point</string>
+  <string name="maxwaitcycles_hint">Nombre de cycles</string>
+
   <string name="osm_setup_title">OpenStreetMap</string>
   <string name="osm_setup_summary">Définition de : balises, description, visibilité et autorisations pour le téléchargement des traces GPS     </string>
   <string name="osm_preferences_title">Préférences d\'OpenStreetMap</string>

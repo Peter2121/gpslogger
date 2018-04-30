@@ -101,6 +101,8 @@ public class AppSettings extends Application
     private static int critBattLevel;
     private static int ALMinBufSize;
     private static int ALMaxBufSize;
+    private static int maxWaitTime;
+    private static int maxWaitCycles;
 
     static void setVersionName(String versionName){
         AppSettings.versionName = versionName;
@@ -924,4 +926,25 @@ public class AppSettings extends Application
     {
         return ALMaxBufSize;
     }
+
+    public static void setMaxWaitTime(int maxwaittime)
+    {
+        AppSettings.maxWaitTime = maxwaittime;
+    }
+
+    public static int getMaxWaitTime()
+    {
+        return maxWaitTime;
+    }
+
+    public static void setMaxWaitCycles(int maxwaitcycles)
+    {
+        AppSettings.maxWaitCycles = maxwaitcycles;
+    }
+
+    public static int getMaxWaitCycles()
+    {
+        return maxWaitCycles;
+    }
+
 }

@@ -15,9 +15,9 @@
 *    along with GPSLogger for Android.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-//TODO: Simplify email logic (too many methods)
-//TODO: Allow messages in IActionListener callback methods
-//TODO: Handle case where a fix is not found and GPS gives up - restart alarm somehow?
+// TODO: Simplify email logic (too many methods)
+// TODO: Allow messages in IActionListener callback methods
+// TODO: Handle case where a fix is not found and GPS gives up - restart alarm somehow?
 
 package com.mendhak.gpslogger;
 
@@ -191,7 +191,8 @@ public class GpsLoggingService extends Service implements IActionListener
         if( (Session.getLastWaitTime()==0L) || (Session.getLastTrackTime()==0L) ) return;
         if(!Session.isStarted()) return;
         long systime = System.currentTimeMillis();
-        long ks = 4L;
+//        long ks = 4L;   // TODO: get from settings
+        final long ks = (long)AppSettings.getMaxWaitCycles();
         Utilities.LogDebug("SysTime: "+systime+" LastTrackTime: "+Session.getLastTrackTime()+" LastWaitTime: "+Session.getLastWaitTime());
         if(systime<(Session.getLastTrackTime()+Session.getLastWaitTime()*ks)) return;
         Utilities.LogDebug("Too much time elapsed since last trackpoint, calling Panic");
@@ -906,7 +907,8 @@ public class GpsLoggingService extends Service implements IActionListener
     private int getMaxWaitTime() {
         List<IFileLogger> loggers = Session.getFileLoggers();
         List<Integer> mwts = new ArrayList<Integer>();
-        final int MAX_WAIT_TIME = 300;  // 5 min  TODO: get from preferences
+//        final int MAX_WAIT_TIME = 300;  // 5 min  TODO: get from preferences
+        final int maxWaitTime = AppSettings.getMaxWaitTime();
         int mwt=0;
         for (IFileLogger logger : loggers)
         {
@@ -921,8 +923,8 @@ public class GpsLoggingService extends Service implements IActionListener
             Utilities.LogDebug("Sorted array of MaxWaitTime: " + Arrays.toString(armwt));
             mwt = (int) armwt[0];
         }
-        if(mwt>MAX_WAIT_TIME) return mwt*1000;
-        else return MAX_WAIT_TIME*1000;
+        if(mwt>maxWaitTime) return mwt*1000;
+        else return maxWaitTime*1000;
 
     }
 
