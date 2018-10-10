@@ -1,12 +1,12 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    buildToolsVersion '28.0.2'
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 19
-        versionCode 20180430
+        versionCode 20181010
         versionName '20180430FT'
     }
     signingConfigs {
@@ -19,12 +19,12 @@ android {
     }
     buildTypes {
         releaseSigned {
-            runProguard false
+            // runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             signingConfig signingConfigs.release
         }
         releaseUnsigned {
-            runProguard false
+            // runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
         debug {
@@ -52,20 +52,16 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:19.1.0'
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'commons-net:commons-net:2.2'
-    //compile 'cz.msebera.android:httpclient:4.4.1.2'
-    compile group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
-    compile ('org.apache.httpcomponents:httpmime:4.3.3'){
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:support-v4:19.1.0'
+    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    implementation 'commons-net:commons-net:2.2'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
+    implementation ('org.apache.httpcomponents:httpmime:4.3.3'){
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
         }
-    //    compile ('org.apache.httpcomponents:httpcore:4.4.1'){
-    //        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
-    //    }
-    compile ('oauth.signpost:signpost-commonshttp4:1.2.1.2') {
+    implementation ('oauth.signpost:signpost-commonshttp4:1.2.1.2') {
         exclude module: 'httpclient'
     }
-    compile 'com.loopj.android:android-async-http:1.4.4'
+    implementation 'com.loopj.android:android-async-http:1.4.4'
 }

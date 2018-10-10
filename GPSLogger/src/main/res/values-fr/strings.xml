@@ -98,7 +98,7 @@
   <string name="time_halfhour">½ heure</string>
   <string name="time_oneandhalfhours">1½ heures</string>
   <string name="time_twoandhalfhours">2½ heures</string>
-  <string name="time_hms_format" formatted="false">﻿%sh %sm %ss</string>
+  <string name="time_hms_format" formatted="false"> %sh %sm %ss</string>
   <string name="accuracy_within" formatted="false">entre %s %s</string>
   <string name="error_displaying">Erreur dans l\'affichage des infos location: %s</string>
   <string name="degree_symbol">°</string>

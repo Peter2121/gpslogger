@@ -92,7 +92,7 @@
   <string name="direction_northwest">Noroeste</string>
   <string name="direction_northnorthwest">Norte Noroeste</string>
   <string name="time_onesecond">1 segundo</string>
-  <string name="time_halfminute">﻿½ minuto</string>
+  <string name="time_halfminute">½ minuto</string>
   <string name="time_oneminute">1 minuto</string>
   <string name="time_onehour">1 hora</string>
   <string name="time_quarterhour">15 minutos</string>
@@ -137,13 +137,13 @@
   <string name="show_notification_summary">Muestra el estado junto con las coordenadas en la barra de notificación.     </string>
   <string name="enabledisablegps_title">Activar/desactivar GPS</string>
   <string name="enabledisablegps_summary">Ir a la configuración del teléfono para activar o desactivar a proveedores de posicionamiento.</string>
-  <string name="startonbootup_title">﻿Iniciar en el arranque</string>
+  <string name="startonbootup_title">Iniciar en el arranque</string>
   <string name="startonbootup_summary">Inicia la app y el registro cuando se prende el teléfono</string>
   <string name="autoemail_title">Envío automático de correo electrónico</string>
   <string name="autoemail_summary">Envia automáticamente el archivo de registro a la dirección especificada</string>
   <string name="please_wait">Por favor espere.</string>
   <string name="autoemail_autosend">Activar correos electrónicos</string>
-  <string name="autoemail_autosend_summary">﻿Permite enviar el archivo de registro a una dirección de correo electrónico especificada.</string>
+  <string name="autoemail_autosend_summary">Permite enviar el archivo de registro a una dirección de correo electrónico especificada.</string>
   <string name="autoemail_frequency_whenistop">Cuando presiono detener</string>
   <string name="autoemail_frequency_8">Después de 8 horas</string>
   <string name="autoemail_frequency_6">Después de 6 horas</string>
@@ -154,7 +154,7 @@
   <string name="autoemail_frequency_1">Después de 1 hora</string>
   <string name="autoemail_frequency_05">Después de 0.5 hora</string>
   <string name="autoemail_frequency_008">Después de 5 minutos</string>
-  <string name="autoemail_smtp_category">﻿Configuración de correo electrónico</string>
+  <string name="autoemail_smtp_category">Configuración de correo electrónico</string>
   <string name="autoemail_username">Nombre de usuario</string>
   <string name="autoemail_username_summary">Nombre de usuario para su servidor de correo electrónico</string>
   <string name="autoemail_password">Contraseña</string>
@@ -175,7 +175,7 @@
   <string name="autoemail_invalid_form_message">Asegúrese de que todos los campos han sido rellenados correctamente     </string>
   <string name="fix_obtained">Posición obtenida</string>
   <string name="started_waiting">GPS iniciado, esperando posición</string>
-  <string name="gps_stopped">﻿GPS en pausa</string>
+  <string name="gps_stopped">GPS en pausa</string>
   <string name="stopped">Detenido</string>
   <string name="osm_setup_title">OpenStreetMap</string>
   <string name="osm_setup_summary">Establecer etiquetas, descripción, visibilidad y autorización para cargar las rutas GPS     </string>
@@ -199,7 +199,7 @@
   <string name="osm_tags_summary">Las etiquetas que se aplican al subir un registro</string>
   <string name="no_files_found">No encontraron archivos, nada que compartir o subir.</string>
   <string name="osm_pick_file">Seleccionar un archivo para subir</string>
-  <string name="debuglog_title">﻿Escribir en archivo para depurar</string>
+  <string name="debuglog_title">Escribir en archivo para depurar</string>
   <string name="debuglog_summary">Escribe mensajes para depurar a un archivo en la tarjeta SD. ADVERTENCIA: El archivo crece muy rápido.     </string>
   <string name="email_upload">Enviar por correo como fichero</string>
   <string name="autoemail_sendto_csv">Direcciones de email separadas por comas</string>

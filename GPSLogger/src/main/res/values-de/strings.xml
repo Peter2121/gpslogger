@@ -135,7 +135,7 @@
   <string name="distance_before_logging_summary">Entfernung bis der nächste Punkt geloggt wird. Verwende 0 um alle Punkte zu loggen.</string>
   <string name="accuracy_before_logging_title">Genauigkeit bevor geloggt wird</string>
   <string name="accuracy_before_logging_summary">Welche Mindestgenauigkeit wird benötigt bevor geloggt wird. Verwende 0 um alle Punkte zu loggen.</string>
-  <string name="useimperial_title">﻿Imperiale Einheiten verwenden</string>
+  <string name="useimperial_title">Imperiale Einheiten verwenden</string>
   <string name="useimperial_summary">Verwende Fuß, Meilen und Pints, keines von diesem neumodischen metrischen Zeug.</string>
   <string name="show_notification_title">Benachrichtigung anzeigen</string>
   <string name="show_notification_summary">Zeigt eine Erinnerung zusammen mit den Koordinaten in der Benachrichtigungsleiste.</string>
