@@ -24,7 +24,7 @@
     <string name="AskFileName">Voer de bestandsnaam zonder extensie</string>
     <string name="ChooseFile">Kies bestand</string>
     <string name="SelectFile">Selecteer bestand</string>
-    <string name="Browse">Bladeren...</string>
+    <string name="Browse">Bladeren…</string>
     <string name="NoFSBrowser">Geen bestandssysteem browser geïnstalleerd</string>
     <string name="FileExists">Bestand bestaat reeds</string>
     <string name="AskAnotherFile">Voer een andere naam, dan kunt u</string>
@@ -106,7 +106,7 @@
   <string name="settings_distance_in_meters">Afstand in meter</string>
   <string name="settings_accuracy_in_meters">Nauwkeurigheid in meters</string>
   <string name="settings_enter_meters">Voer meter in(max 9999)</string>
-  <string name="settings_converting_title">Converteren...</string>
+  <string name="settings_converting_title">Converteren…</string>
   <string name="settings_converting_description">Minimale afstand voor converteren van eenheden. Waarden boven 9999 worden teruggezet op 9999. Het instellingen scherm zal nu herladen.     </string>
   <string name="pref_logging_title">Logging details</string>
   <string name="log_gpx_title">Loggen naar GPX</string>

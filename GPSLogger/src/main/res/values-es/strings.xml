@@ -24,7 +24,7 @@
     <string name="AskFileName">Escriba el nombre de fichero sin extensión</string>
     <string name="ChooseFile">Elegir fichero</string>
     <string name="SelectFile">Selecciona fichero</string>
-    <string name="Browse">Explorar...</string>
+    <string name="Browse">Explorar…</string>
     <string name="NoFSBrowser">No hay ningún explorador instalado sistema de ficheros</string>
     <string name="FileExists">El fichero ya existe</string>
     <string name="AskAnotherFile">Introduzca otro nombre, por favor</string>
@@ -58,7 +58,7 @@
   <string name="error">Error</string>
   <string name="error_connection">Error de conexión. Compruebe la configuración del teléfono.</string>
   <string name="gpsprovider_unavailable">Ningún proveedor GPS disponible. Por favor, compruebe su configuración de
-        ubicación y habilite algun proveedor de localización.
+        ubicación y habilite algún proveedor de localización.
     </string>
   <string name="started">Iniciado</string>
   <string name="providername_using">    (Usando %s)</string>
@@ -109,7 +109,7 @@
   <string name="settings_accuracy_in_meters">Precisión (en metros)</string>
   <string name="settings_accuracy_in_feet">Precisión en piés</string>
   <string name="settings_enter_meters">Ingrese metros (máx. 9999)</string>
-  <string name="settings_converting_title">Convirtiendo...</string>
+  <string name="settings_converting_title">Convirtiendo…</string>
   <string name="pref_logging_title">Detalles de Registro</string>
   <string name="log_gpx_title">Registrar en GPX</string>
   <string name="log_gpx_summary">Crea un archivo GPX en la carpeta GPSLogger de la tarjeta SD.</string>
@@ -213,7 +213,7 @@
   <string name="skylines_interval">Frecuencia señalando, sec</string>
   <string name="skylines_interval_summary">Frecuencia de recuperación de los datos de GPS</string>
 
-  <string name="log_livetrack24_summary">Enviar seguimiento GPS al servidor de live tracking (leonardo, FFVL, ...).</string>
+  <string name="log_livetrack24_summary">Enviar seguimiento GPS al servidor de live tracking (leonardo, FFVL, …).</string>
   <string name="livetrack24_setup_summary">Enviar seguimiento GPS al servidor livetrack24</string>
   <string name="livetrack24_server_url">Servidor especial</string>
   <string name="livetrack24_server_url_summary">URL personalizado</string>

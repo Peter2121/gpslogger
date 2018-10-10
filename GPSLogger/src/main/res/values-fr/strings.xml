@@ -24,7 +24,7 @@
     <string name="AskFileName">Entrez le nom de fichier sans extension</string>
     <string name="ChooseFile">Choisissez le fichier</string>
     <string name="SelectFile">Sélectionnez le fichier</string>
-    <string name="Browse">Explorer...</string>
+    <string name="Browse">Explorer…</string>
     <string name="NoFSBrowser">Explorateur de fichiers n\'est pas installé</string>
     <string name="FileExists">Le fichier existe déjà"</string>
     <string name="AskAnotherFile">Merci d\'entrer un autre nom</string>
@@ -108,7 +108,7 @@
   <string name="settings_accuracy_in_meters">Précision en mètres</string>
   <string name="settings_accuracy_in_feet">Précision en pieds</string>
   <string name="settings_enter_meters">Entrez mètres (max 9999)</string>
-  <string name="settings_converting_title">Conversion en cours...</string>
+  <string name="settings_converting_title">Conversion en cours…</string>
   <string name="settings_converting_description">Conversion des unités de distance minimale. Les valeurs supérieures à 9999 sont remis à 9999. L\'écran des paramètres vas recharger.</string>
   <string name="pref_logging_title">Détails de l\'enregistrement</string>
   <string name="log_gpx_title">Enregistrement sur GPX</string>
@@ -286,7 +286,7 @@
   <string name="skylines_interval">Frequence de pointage, sec</string>
   <string name="skylines_interval_summary">Frequence de recuperation de données GPS</string>
 
-  <string name="log_livetrack24_summary">Envoyer les données GPS au serveur livetrack24 (Leonardo live, FFVL, ...).</string>
+  <string name="log_livetrack24_summary">Envoyer les données GPS au serveur livetrack24 (Leonardo live, FFVL, …).</string>
   <string name="livetrack24_setup_summary">Envoyer les données GPS au serveur livetrack24</string>
   <string name="livetrack24_enabled">Activer livetrack24</string>
   <string name="livetrack24_enabled_summary">Activer ce serveur livetrack24.</string>

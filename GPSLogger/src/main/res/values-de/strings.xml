@@ -24,7 +24,7 @@
     <string name="AskFileName">Geben Sie den Dateinamen ohne Erweiterung</string>
     <string name="ChooseFile">Datei auswählen</string>
     <string name="SelectFile">Datei auswählen</string>
-    <string name="Browse">Browse...</string>
+    <string name="Browse">Browse…</string>
     <string name="NoFSBrowser">Kein Dateisystem-Browser installiert</string>
     <string name="FileExists">Datei existiert bereits</string>
     <string name="AskAnotherFile">Geben Sie einen anderen Namen, Bitte</string>
@@ -107,7 +107,7 @@
   <string name="settings_accuracy_in_meters">Genauigkeit in Metern</string>
   <string name="settings_accuracy_in_feet">Genauigkeit in Fuß</string>
   <string name="settings_enter_meters">Eingabe in Metern (max. 9999)</string>
-  <string name="settings_converting_title">Konvertiere...</string>
+  <string name="settings_converting_title">Konvertiere…</string>
   <string name="settings_converting_description">Rechne Mindestentfernung Einheiten um. Werte über 9999 werden auf 9999 gesetzt. Der Einstellungsschirm wird nun neu geladen.</string>
   <string name="pref_logging_title">Logging Details</string>
   <string name="log_gpx_title">Logge zu GPX</string>
@@ -186,7 +186,7 @@
   <string name="osm_setup_summary">Festlegen der Tags, Beschreibung, Sichtbarkeit und Berechtigung für das Hochladen der GPS-Tracks     </string>
   <string name="osm_preferences_title">OpenStreetMap-Einstellungen</string>
   <string name="osm_lbl_authorize">Autorisiere diese App</string>
-  <string name="osm_lbl_authorize_description">Sie müssen dieser App die Berechtigung erteilen Tracks zu OpenStreetMap hochzuladen. Du kannst Tags, Beschreibungen und Sichtbarkeit festlegen, nachdem du die App dazu hier authorisiert hast.</string>
+  <string name="osm_lbl_authorize_description">Sie müssen dieser App die Berechtigung erteilen Tracks zu OpenStreetMap hochzuladen. Du kannst Tags, Beschreibungen und Sichtbarkeit festlegen, nachdem du die App dazu hier autorisiert hast.</string>
   <string name="osm_requesttoken_url">http://www.openstreetmap.org/oauth/request_token</string>
   <string name="osm_accesstoken_url">http://www.openstreetmap.org/oauth/access_token</string>
   <string name="osm_authorize_url">http://www.openstreetmap.org/oauth/authorize</string>
@@ -215,10 +215,10 @@
   <string name="btn_single_point">Zeichne einen einzelnen Wegpunkt auf</string>
   <string name="dropbox_setup_title">Dropbox</string>
   <string name="dropbox_setup_summary">Authorisiere mit Dropbox um Datei-Uploads zu erlauben</string>
-  <string name="dropbox_authorize_description">Um Dropbox-Features zu nutzen, musst du GPSLogger authorisieren Dateien zu deinem Account hochzuladen.</string>
-  <string name="dropbox_authorize">Authorisieren</string>
+  <string name="dropbox_authorize_description">Um Dropbox-Features zu nutzen, musst du GPSLogger autorisieren Dateien zu deinem Account hochzuladen.</string>
+  <string name="dropbox_authorize">Autorisieren</string>
   <string name="dropbox_unauthorize">Entferne die Authorisierung</string>
-  <string name="dropbox_unauthorize_description">Du bist für Dropbox authorisiert. Dateien werden zu \'Apps\\GPSLogger for Android\' hochgeladen. Wenn du möchtest, kannst du die GPSLogger-Verbindung in deinem Dropbox-Konto löschen.</string>
+  <string name="dropbox_unauthorize_description">Du bist für Dropbox autorisiert. Dateien werden zu \'Apps\\GPSLogger for Android\' hochgeladen. Wenn du möchtest, kannst du die GPSLogger-Verbindung in deinem Dropbox-Konto löschen.</string>
   <string name="dropbox_couldnotauthorize">Dropbox-Anmeldung fehlgeschlagen, bitte probiere es später noch einmal</string>
   <string name="dropbox_upload">Dropbox</string>
   <string name="menu_upload">Upload</string>
@@ -226,7 +226,7 @@
   <string name="autoemail_from_summary">Einige Email-Anbieter verlangen eine Absender-Adresse. Verwende das nur, wenn du das musst.</string>
   <string name="gdocs_upload">Google Docs</string>
   <string name="gdocs_settings_screenname">Google Docs Upload-Einstellungen</string>
-  <string name="gdocs_startauthorization">Verbinde mit Google Docs...</string>
+  <string name="gdocs_startauthorization">Verbinde mit Google Docs…</string>
   <string name="gdocs_authorize_summary">Ruft Google Docs auf, um GPSLogger zu autorisieren</string>
   <string name="gdocs_clearauthorization">Verknüpfung löschen</string>
   <string name="gdocs_clearauthorization_summary">Löscht lokale Google Docs-Einstellungen. Um den Zugriff dauerhaft zu entfernen, die Google-Kontoeinstellungen anpassen!</string>
