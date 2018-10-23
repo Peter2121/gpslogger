@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 19
@@ -28,7 +28,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
         debug {
-            debuggable false
+            debuggable true
+            testCoverageEnabled false
+            jniDebuggable true
         }
     }
     lintOptions {
@@ -52,15 +54,15 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:support-v4:19.1.0'
     implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     implementation 'commons-net:commons-net:2.2'
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
-    implementation ('org.apache.httpcomponents:httpmime:4.3.3'){
+    implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    implementation('org.apache.httpcomponents:httpmime:4.3.3') {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
-        }
-    implementation ('oauth.signpost:signpost-commonshttp4:1.2.1.2') {
+    }
+    implementation('oauth.signpost:signpost-commonshttp4:1.2.1.2') {
         exclude module: 'httpclient'
     }
     implementation 'com.loopj.android:android-async-http:1.4.4'
