@@ -176,15 +176,6 @@
   <string name="dropbox_authorize_description">若要使用 Dropbox 功能，您将需要授权 GPSLogger 将文件上载到您的帐户。</string>
   <string name="dropbox_authorize">授权</string>
   <string name="dropbox_unauthorize">删除授权</string>
-  <string name="gdocs_settings_screenname">Google 文档上传设置</string>
-  <string name="gdocs_startauthorization"> Google Docs 授权</string>
-  <string name="gdocs_authorize_summary">转到 Google Docs网站，从而授权 GPSLogger</string>
-  <string name="gdocs_setup_summary">获得 Google Docs 上传授权 </string>
-  <string name="gdocs_test_summary">上传测试文件至 Google Docs</string>
-  <string name="gdocs_test_title">测试上传</string>
-  <string name="gdocs_testupload_error">测试文件上传失败</string>
-  <string name="gdocs_testupload_success">上传成功。请检查谷歌文档中的文档更新。</string>
-  <string name="gdocs_selectgoogleaccount">请选择一个 Google 帐户</string>
   <string name="email_upload">通过电子邮件发送文件</string>
   <string name="autoemail_sendto_csv">以逗号分隔的电子邮件地址</string>
   <string name="autosend_enabled">允许自动发送</string>

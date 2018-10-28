@@ -407,21 +407,6 @@
     <string name="autoemail_from_summary">Some email providers require a from address. Use this only if you need it.
     </string>
 
-    <string name="gdocs_upload">Google Docs</string>
-
-    <string name="gdocs_settings_screenname">Google Docs Upload Settings</string>
-    <string name="gdocs_startauthorization">Authorize with Google Docs</string>
-    <string name="gdocs_authorize_summary">Takes you to Google Docs where you need to authorize GPSLogger</string>
-    <string name="gdocs_clearauthorization">Clear Authorization</string>
-    <string name="gdocs_clearauthorization_summary">Forgets local GDocs settings. To permanently revoke access, go to Google Account settings</string>
-    <string name="gdocs_setup_title">Google Docs</string>
-    <string name="gdocs_setup_summary">Authorize with Google Docs to allow uploads</string>
-    <string name="gdocs_test_summary">Upload a test file to Google Docs</string>
-    <string name="gdocs_test_title">Test upload</string>
-    <string name="gdocs_testupload_error">Could not upload a test file</string>
-    <string name="gdocs_testupload_success">Uploaded. Please check your Google Documents for a new file.</string>
-    <string name="gdocs_selectgoogleaccount">Select a Google Account</string>
-    
     <string name="email_upload">Email a file</string>
     <string name="email_location">Email the location</string>
 

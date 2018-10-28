@@ -54,13 +54,14 @@ android {
 }
 
 dependencies {
+    implementation project(':actionbarsherlock')
     implementation files('libs/mail.jar')
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/json-simple-1.1.1.jar')
     implementation files('libs/dropbox-android-sdk.jar')
     implementation 'com.android.support:support-v4:19.1.0'
-    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    //    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     implementation 'commons-net:commons-net:2.2'
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     implementation('org.apache.httpcomponents:httpmime:4.3.3') {

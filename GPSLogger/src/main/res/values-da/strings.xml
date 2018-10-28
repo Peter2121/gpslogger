@@ -206,11 +206,4 @@
   <string name="menu_upload">Upload</string>
   <string name="autoemail_from">Fra adresse</string>
   <string name="autoemail_from_summary">Nogle e-mail-udbydere kræver en fra-adresse. Brug dette kun, hvis du har brug for det.</string>
-  <string name="gdocs_upload">Google Docs</string>
-  <string name="gdocs_settings_screenname">Google Docs Upload indstillinger</string>
-  <string name="gdocs_startauthorization">Godkend med Google Docs</string>
-  <string name="gdocs_authorize_summary">Fører dig til Google Docs hvor du skal tillade GPSLogger</string>
-  <string name="gdocs_clearauthorization">Fjern tilladelse</string>
-  <string name="gdocs_clearauthorization_summary">Glemmer lokale GDocs indstillinger. For permanent at tilbagekalde adgang, skal du gå til Google-konto indstillinger</string>
-  <string name="gdocs_setup_title">Google Docs</string>
 </resources>

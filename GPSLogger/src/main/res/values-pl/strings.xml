@@ -198,19 +198,6 @@
   <string name="menu_upload">Wysyłanie</string>
   <string name="autoemail_from">Adres nadawcy</string>
   <string name="autoemail_from_summary">Niektórzy dostawcy poczty wymagają adresu nadawcy. Należy używać tej opcji tylko, gdy jest to wymagane.</string>
-  <string name="gdocs_upload">Dokumenty Google</string>
-  <string name="gdocs_settings_screenname">Ustawienia wysyłania do Dokumentów Google</string>
-  <string name="gdocs_startauthorization">Autoryzuj w Dokumentach Google</string>
-  <string name="gdocs_authorize_summary">Przeniesienie do Dokumentów Google celem autoryzacji GPSLoggera.</string>
-  <string name="gdocs_clearauthorization">Usunięcie autoryzacji</string>
-  <string name="gdocs_clearauthorization_summary">Porzuć lokalne ustawienia Dokumentów Google. W celu całkowitego odebrania dostępu należy przejść do ustawień Dokumentów Google.</string>
-  <string name="gdocs_setup_title">Dokumenty Google</string>
-  <string name="gdocs_setup_summary">Autoryzuj w Dokumentach Google w celu wysyłania.</string>
-  <string name="gdocs_test_summary">Wysłanie testowego pliku do Dokumentów Google.</string>
-  <string name="gdocs_test_title">Test wysyłania</string>
-  <string name="gdocs_testupload_error">Nie można wysłać testowego pliku</string>
-  <string name="gdocs_testupload_success">Wysłano. Proszę sprawdzić nowe pliki w Dokumentach Google.</string>
-  <string name="gdocs_selectgoogleaccount">Wybór konta Google</string>
   <string name="email_upload">Wysłanie pliku e-mailem</string>
   <string name="autoemail_sendto_csv">Adresy e-mail oddzielone przecinkiem.</string>
 </resources>

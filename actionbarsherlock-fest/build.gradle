@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+  implementation 'com.squareup:fest-android:1.0.5'
+  implementation project(':actionbarsherlock')
+}
+
+android {
+  compileSdkVersion 19
+  buildToolsVersion '28.0.3'
+  sourceSets {
+    main {
+      manifest.srcFile 'AndroidManifest.xml'
+      java.srcDirs = ['src']
+      res.srcDirs = ['res']
+    }
+  }
+  defaultConfig {
+    minSdkVersion = 7
+    minSdkVersion 9
+    //targetSdkVersion 19
+  }
+  buildTypes {
+    releaseSigned {
+      // runProguard false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+      //signingConfig signingConfigs.release
+    }
+    releaseUnsigned {
+      // runProguard false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+    }
+    debug {
+      debuggable true
+      testCoverageEnabled false
+      jniDebuggable true
+    }
+  }
+  productFlavors {
+  }
+}

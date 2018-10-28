@@ -339,13 +339,6 @@
                 </Preference>
 
                 <Preference
-                    android:title="@string/gdocs_setup_title"
-                    android:summary="@string/gdocs_setup_summary"
-                    android:key="gdocs_setup">
-                    <intent android:action="net.kataplop.gpslogger.GDOCS_SETUP" />
-                </Preference>
-
-                <Preference
                     android:title="@string/autoftp_setup_title"
                     android:summary="@string/autoftp_setup_summary"
                     android:key="autoftp_setup">

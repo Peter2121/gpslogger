@@ -118,19 +118,6 @@
   <string name="menu_upload">Įkelti</string>
   <string name="autoemail_from">Iš adreso</string>
   <string name="autoemail_from_summary">Kai kurie el. pašto tiekėjai reikalauja adreso. Naudokite tik tada, jei privaloma.</string>
-  <string name="gdocs_upload">Google Docs</string>
-  <string name="gdocs_settings_screenname">Google Docs įkėlimo nustatymai</string>
-  <string name="gdocs_startauthorization">Autorizuotis su Google Docs</string>
-  <string name="gdocs_authorize_summary">Atidaro jums Google Docs puslapį, kur jūs galėsti autorizuoti GPSLogger</string>
-  <string name="gdocs_clearauthorization">Išvalyti autorizaciją</string>
-  <string name="gdocs_clearauthorization_summary">Pamiršta vietinius Google Docs nustatymus. Norint pilnai atsijungti, tai reikia padaryti per Google paskyros nustatymus</string>
-  <string name="gdocs_setup_title">Google Docs</string>
-  <string name="gdocs_setup_summary">Autorizuotis su Google Docs norint leisti įkėlimus</string>
-  <string name="gdocs_test_summary">Įkelti testinį failą į Google Docs</string>
-  <string name="gdocs_test_title">Testuoti įkėlimą</string>
-  <string name="gdocs_testupload_error">Nepavyko įkelti testinio failo</string>
-  <string name="gdocs_testupload_success">Įkelta. Prašau patikrinti jūsų Google Docs dokumentus, jei norite pamatyti naują failą.</string>
-  <string name="gdocs_selectgoogleaccount">Pasirinkti Google paskyrą</string>
   <string name="email_upload">Siųsti failą el. paštu</string>
   <string name="autoemail_sendto_csv">Atskiriama failus</string>
 </resources>

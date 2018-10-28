@@ -54,8 +54,6 @@ import com.mendhak.gpslogger.senders.dropbox.DropBoxHelper;
 import com.mendhak.gpslogger.senders.email.AutoEmailActivity;
 import com.mendhak.gpslogger.senders.email.AutoEmailHelper;
 import com.mendhak.gpslogger.senders.ftp.AutoFtpActivity;
-import com.mendhak.gpslogger.senders.gdocs.GDocsHelper;
-import com.mendhak.gpslogger.senders.gdocs.GDocsSettingsActivity;
 import com.mendhak.gpslogger.senders.osm.OSMHelper;
 import com.mendhak.gpslogger.senders.opengts.OpenGTSActivity;
 import net.kataplop.gpslogger.R;
@@ -684,9 +682,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
             case R.id.mnuDropBox:
                 UploadToDropBox();
                 break;
-            case R.id.mnuGDocs:
-                UploadToGoogleDocs();
-                break;
             case R.id.mnuOpenGTS:
                 SendToOpenGTS();
                 break;
@@ -932,22 +927,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
             ShowFileListDialog(settingsIntent, fs);
         }
     }
-
-
-    private void UploadToGoogleDocs()
-    {
-        Utilities.LogDebug("GpsMainActivity.UploadToGoogleDocs");
-
-        if (!GDocsHelper.IsLinked(getApplicationContext()))
-        {
-            startActivity(new Intent(GpsMainActivity.this, GDocsSettingsActivity.class));
-            return;
-        }
-
-        Intent settingsIntent = new Intent(GpsMainActivity.this, GDocsSettingsActivity.class);
-        ShowFileListDialog(settingsIntent, FileSenderFactory.GetGDocsSender(getApplicationContext(), this));
-    }
-
 
     private void UploadToDropBox()
     {

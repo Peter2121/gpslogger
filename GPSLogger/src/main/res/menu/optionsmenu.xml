@@ -12,7 +12,6 @@
         <menu>
             <item android:id="@+id/mnuDropBox" android:title="@string/dropbox_upload" />
             <item android:id="@+id/mnuOSM" android:title="@string/osm_upload" />
-            <item android:id="@+id/mnuGDocs" android:title="@string/gdocs_upload" />
             <item android:id="@+id/mnuEmail" android:title="@string/email_upload"/>
             <item android:id="@+id/mnuEmailLoc" android:title="@string/email_location"/>
             <item android:id="@+id/mnuOpenGTS" android:title="@string/opengts_upload"/>

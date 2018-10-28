@@ -1,1 +1,1 @@
-include ':GPSLogger'
+include ':GPSLogger', ':actionbarsherlock-fest', ':actionbarsherlock', ':actionbarsherlock-i18n'

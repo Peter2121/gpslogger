@@ -126,9 +126,5 @@
   <string name="dropbox_unauthorize">Treure l\'autorització</string>
   <string name="dropbox_upload">Dropbox</string>
   <string name="menu_upload">Carregar</string>
-  <string name="gdocs_upload">Google Docs</string>
-  <string name="gdocs_test_title">Càrrega de prova</string>
-  <string name="gdocs_testupload_error">No s\'ha pogut carregar l\'arxiu de prova</string>
-  <string name="gdocs_selectgoogleaccount">Selecciona un compte de Google</string>
   <string name="email_upload">Envia per email un arxiu</string>
 </resources>
