@@ -19,6 +19,7 @@
 
 package com.mendhak.gpslogger;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
@@ -73,6 +74,16 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
     private PrefsIO prefsio;
     private final int DIALOG_CHOOSE_FILE = 103;
 
+    private static final int PERM_REQUEST_ACCESS_FINE_LOCATION = 10001;
+    private static final int PERM_REQUEST_ACCESS_COARSE_LOCATION = 10002;
+    private static final int PERM_REQUEST_WRITE_EXTERNAL_STORAGE = 10003;
+    private static final int PERM_REQUEST_READ_ATTACHMENT = 10004;
+
+    private boolean PERM_REQUEST_ACCESS_FINE_LOCATION_GRANTED;
+    private boolean PERM_REQUEST_ACCESS_COARSE_LOCATION_GRANTED;
+    private boolean PERM_REQUEST_WRITE_EXTERNAL_STORAGE_GRANTED;
+    private boolean PERM_REQUEST_READ_ATTACHMENT_GRANTED;
+
     public final static String CONF_DATA = "CONF_DATA_STRING";
 
     /**
@@ -119,6 +130,12 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
 
         Utilities.LogInfo("GPSLogger activity created");
 
+        List<String> list_perms = new ArrayList<String>();
+        String[] arr_perms;
+        list_perms.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        list_perms.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        list_perms.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
         setContentView(R.layout.main_fragment);
 
         Intent iin= getIntent();
@@ -132,11 +149,26 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
                 else confImport="";
         }
 
+//        if(confImport.length() > 1) list_perms.add(Manifest.permission.READ_ATTACHMENT); does not work!!
+        arr_perms=new String[list_perms.size()];
+        list_perms.toArray(arr_perms);
+        if(!hasPermissions(arr_perms)) {
+//          ask permissions etc.
+        }
+
+        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+
         Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
         prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
-        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 //        serviceIntent = new Intent(this, GpsLoggingService.class);
-        if(confImport.length() > 1) prefsio.ImportString(confImport);
+        if(confImport.length() > 1) {
+            prefsio.ImportString(confImport);
+        }
+    }
+
+    /* Returns true if all mandatory permissions are granted AND set PERM_REQUEST_... boolean values */
+    protected boolean hasPermissions(String[] perms) {
+        return true;
     }
 
     @Override
