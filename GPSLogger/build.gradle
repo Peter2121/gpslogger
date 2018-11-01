@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 22
     buildToolsVersion '28.0.3'
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 19
-        versionCode 20181010
-        versionName '20180430FT'
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 20181101
+        versionName '20181101FT'
     }
     signingConfigs {
         release {
@@ -60,7 +60,7 @@ dependencies {
     implementation files('libs/additionnal.jar')
     implementation files('libs/json-simple-1.1.1.jar')
     implementation files('libs/dropbox-android-sdk.jar')
-    implementation 'com.android.support:support-v4:19.1.0'
+    implementation 'com.android.support:support-v4:22.1.0'
     //    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     implementation 'commons-net:commons-net:2.2'
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
