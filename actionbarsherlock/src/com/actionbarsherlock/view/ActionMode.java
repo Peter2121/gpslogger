@@ -168,7 +168,7 @@ public abstract class ActionMode {
 
     /**
      * Callback interface for action modes. Supplied to
-     * {@link View#startActionMode(Callback)}, a Callback
+     * View#startActionMode(Callback), a Callback
      * configures and handles events raised by a user's interaction with an action mode.
      *
      * <p>An action mode's lifecycle is as follows:

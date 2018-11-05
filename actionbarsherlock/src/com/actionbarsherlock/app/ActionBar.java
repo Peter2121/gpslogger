@@ -36,7 +36,7 @@ import android.widget.SpinnerAdapter;
  * android.R.style#Theme_Holo Holo} theme (or one of its descendant themes), which is the default.
  * You may otherwise add the action bar by calling {@link
  * android.view.Window#requestFeature requestFeature(FEATURE_ACTION_BAR)} or by declaring it in a
- * custom theme with the {@link android.R.styleable#Theme_windowActionBar windowActionBar} property.
+ * custom theme with the android.R.styleable#Theme_windowActionBar property.
  * <p>By default, the action bar shows the application icon on
  * the left, followed by the activity title. If your activity has an options menu, you can make
  * select items accessible directly from the action bar as "action items". You can also
@@ -499,11 +499,11 @@ public abstract class ActionBar {
      * Create and return a new {@link Tab}.
      * This tab will not be included in the action bar until it is added.
      *
-     * <p>Very often tabs will be used to switch between {@link Fragment}
+     * <p>Very often tabs will be used to switch between Fragment
      * objects.  Here is a typical implementation of such tabs:</p>
      *
-     * {@sample development/samples/ApiDemos/src/com/example/android/apis/app/FragmentTabs.java
-     *      complete}
+     * development/samples/ApiDemos/src/com/example/android/apis/app/FragmentTabs.java
+     *      complete
      *
      * @return A new Tab
      *
@@ -609,7 +609,7 @@ public abstract class ActionBar {
     /**
      * Show the ActionBar if it is not currently showing.
      * If the window hosting the ActionBar does not have the feature
-     * {@link Window#FEATURE_ACTION_BAR_OVERLAY} it will resize application
+     * Window#FEATURE_ACTION_BAR_OVERLAY it will resize application
      * content to fit the new space available.
      */
     public abstract void show();
@@ -617,7 +617,7 @@ public abstract class ActionBar {
     /**
      * Hide the ActionBar if it is currently showing.
      * If the window hosting the ActionBar does not have the feature
-     * {@link Window#FEATURE_ACTION_BAR_OVERLAY} it will resize application
+     * Window#FEATURE_ACTION_BAR_OVERLAY it will resize application
      * content to fit the new space available.
      */
     public abstract void hide();
@@ -702,7 +702,7 @@ public abstract class ActionBar {
     /**
      * A tab in the action bar.
      *
-     * <p>Tabs manage the hiding and showing of {@link Fragment}s.
+     * <p>Tabs manage the hiding and showing of Fragments.
      */
     public static abstract class Tab {
         /**
