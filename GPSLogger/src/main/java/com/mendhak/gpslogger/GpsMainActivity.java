@@ -20,19 +20,23 @@
 package com.mendhak.gpslogger;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.*;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
 import android.os.BatteryManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -72,17 +76,23 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
     private static Intent serviceIntent;
     private GpsLoggingService loggingService;
     private PrefsIO prefsio;
+    private String confImport;
+
     private final int DIALOG_CHOOSE_FILE = 103;
 
+    String[] arr_perms;
+
+    private static final int PERM_REQUEST_MANDATORY = 10000;
     private static final int PERM_REQUEST_ACCESS_FINE_LOCATION = 10001;
     private static final int PERM_REQUEST_ACCESS_COARSE_LOCATION = 10002;
     private static final int PERM_REQUEST_WRITE_EXTERNAL_STORAGE = 10003;
     private static final int PERM_REQUEST_READ_ATTACHMENT = 10004;
 
-    private boolean PERM_REQUEST_ACCESS_FINE_LOCATION_GRANTED;
-    private boolean PERM_REQUEST_ACCESS_COARSE_LOCATION_GRANTED;
-    private boolean PERM_REQUEST_WRITE_EXTERNAL_STORAGE_GRANTED;
-    private boolean PERM_REQUEST_READ_ATTACHMENT_GRANTED;
+    private boolean PERM_MANDATORY_GRANTED;
+    private boolean PERM_ACCESS_FINE_LOCATION_GRANTED;
+    private boolean PERM_ACCESS_COARSE_LOCATION_GRANTED;
+    private boolean PERM_WRITE_EXTERNAL_STORAGE_GRANTED;
+    private boolean PERM_READ_ATTACHMENT_GRANTED;
 
     public final static String CONF_DATA = "CONF_DATA_STRING";
 
@@ -131,44 +141,106 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         Utilities.LogInfo("GPSLogger activity created");
 
         List<String> list_perms = new ArrayList<String>();
-        String[] arr_perms;
         list_perms.add(Manifest.permission.ACCESS_FINE_LOCATION);
         list_perms.add(Manifest.permission.ACCESS_COARSE_LOCATION);
         list_perms.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         setContentView(R.layout.main_fragment);
+        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
+        confImport = "";
 
         Intent iin= getIntent();
         Bundle ext = iin.getExtras();
-        String confImport = "";
 
         if(ext!=null)
         {
             confImport = ext.getString(CONF_DATA);
-            if(confImport!=null) Utilities.LogInfo("Got string to import configuration data");
+            if(confImport!=null) Utilities.LogInfo("Got string to import configuration data: "+confImport);
                 else confImport="";
         }
 
 //        if(confImport.length() > 1) list_perms.add(Manifest.permission.READ_ATTACHMENT); does not work!!
+        PERM_READ_ATTACHMENT_GRANTED=true; // Temporary hack to avoid NULL
+
         arr_perms=new String[list_perms.size()];
         list_perms.toArray(arr_perms);
-        if(!hasPermissions(arr_perms)) {
-//          ask permissions etc.
+        if(!hasPermissions()) {
+            reqPermissions();
         }
 
-        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-
-        Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
-        prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
+        if(PERM_READ_ATTACHMENT_GRANTED) ImportSettings();
 //        serviceIntent = new Intent(this, GpsLoggingService.class);
+    }
+
+    protected void ImportSettings() {
         if(confImport.length() > 1) {
+            prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
             prefsio.ImportString(confImport);
         }
     }
 
-    /* Returns true if all mandatory permissions are granted AND set PERM_REQUEST_... boolean values */
-    protected boolean hasPermissions(String[] perms) {
+    /* Returns true if all mandatory permissions are granted */
+    protected boolean hasPermissions() {
+        int res = 0;
+        for (String perms : arr_perms) {
+            res = checkCallingOrSelfPermission(perms);
+            if (!(res == PackageManager.PERMISSION_GRANTED)){
+                return false;
+            }
+        }
         return true;
+    }
+
+    private void reqPermissions() {
+        String toastText = " mandatory permission is NOT granted, the application cannot continue.";
+        String dlgTitle = "Permissions";
+        String dlgText = "You MUST accord the permissions to use this application";
+        Boolean needShowDlg = false;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            for (String perms : arr_perms) {
+                if(shouldShowRequestPermissionRationale(perms)) {
+                    needShowDlg=true;
+                }
+                else Toast.makeText(this, perms+toastText, Toast.LENGTH_LONG).show();
+            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(dlgText).setTitle(dlgTitle);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            requestPermissions(arr_perms, PERM_REQUEST_MANDATORY);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean allowed = true;
+
+        switch(requestCode) {
+            case PERM_REQUEST_MANDATORY:
+                for (int res : grantResults){
+                    allowed = allowed && (res == PackageManager.PERMISSION_GRANTED);
+                }
+                if(allowed) PERM_MANDATORY_GRANTED=true;
+                else PERM_MANDATORY_GRANTED=false;
+                break;
+            case PERM_REQUEST_READ_ATTACHMENT:
+                if(grantResults.length>0) allowed = allowed && (grantResults[0] == PackageManager.PERMISSION_GRANTED);
+                if(allowed) PERM_READ_ATTACHMENT_GRANTED=true;
+                else PERM_READ_ATTACHMENT_GRANTED=false;
+                break;
+            default:
+                allowed = false;
+                break;
+        }
+
+        if(!allowed) {
+            // warning to user that he have not granted permissions.
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                reqPermissions();
+            }
+        }
     }
 
     @Override

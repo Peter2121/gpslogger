@@ -588,8 +588,8 @@ public class GpsLoggingService extends Service implements IActionListener
                     + nf.format(Session.getCurrentLongitude());
         }
 
-        nfc.setLatestEventInfo(getApplicationContext(), getString(R.string.gpslogger_still_running),
-                contentText, pending);
+//        nfc.setLatestEventInfo(getApplicationContext(), getString(R.string.gpslogger_still_running),
+//                contentText, pending);
 
         gpsNotifyManager.notify(NOTIFICATION_ID, nfc);
         Session.setNotificationVisible(true);
