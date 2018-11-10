@@ -148,6 +148,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         setContentView(R.layout.main_fragment);
         this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
+        prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
         confImport = "";
 
         Intent iin= getIntent();
@@ -175,7 +176,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
 
     protected void ImportSettings() {
         if(confImport.length() > 1) {
-            prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
             prefsio.ImportString(confImport);
         }
     }
@@ -186,6 +186,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         for (String perms : arr_perms) {
             res = checkCallingOrSelfPermission(perms);
             if (!(res == PackageManager.PERMISSION_GRANTED)){
+                Utilities.LogDebug("Permission "+perms+" is not granted");
                 return false;
             }
         }
@@ -197,19 +198,33 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         String dlgTitle = "Permissions";
         String dlgText = "You MUST accord the permissions to use this application";
         Boolean needShowDlg = false;
+        int res = 0;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             for (String perms : arr_perms) {
+                res = checkCallingOrSelfPermission(perms);
+                if(res == PackageManager.PERMISSION_GRANTED) continue;
                 if(shouldShowRequestPermissionRationale(perms)) {
                     needShowDlg=true;
+                    Utilities.LogDebug("Need to explain permission: "+perms);
                 }
-                else Toast.makeText(this, perms+toastText, Toast.LENGTH_LONG).show();
+                else {
+                    Utilities.LogDebug("No permission "+perms+"!!!");
+                    Toast.makeText(this, perms+toastText, Toast.LENGTH_LONG).show();
+                }
             }
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(dlgText).setTitle(dlgTitle);
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            requestPermissions(arr_perms, PERM_REQUEST_MANDATORY);
+            if(needShowDlg) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(dlgText).setTitle(dlgTitle).setNeutralButton(android.R.string.ok,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                requestPermissions(arr_perms, PERM_REQUEST_MANDATORY);
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+            else requestPermissions(arr_perms, PERM_REQUEST_MANDATORY);
         }
     }
 
