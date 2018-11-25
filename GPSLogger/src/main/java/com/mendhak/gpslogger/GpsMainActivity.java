@@ -148,6 +148,20 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         setContentView(R.layout.main_fragment);
         this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
+        final File gpxFolder = new File(Session.work_path);
+        if (!gpxFolder.exists()) {
+            Utilities.LogDebug("Creating "+Session.work_path+" directory");
+            try {
+                if(!gpxFolder.mkdir()) {
+                    Utilities.LogDebug("Fatal: Cannot create working directory");
+                    this.StopAndUnbindServiceIfRequired();
+                    this.finish();
+                }
+            } catch (RuntimeException ex) {
+                Utilities.LogDebug("Cannot create working directory");
+                Utilities.LogError("onCreate", ex);
+            }
+        }
         prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
         confImport = "";
 
