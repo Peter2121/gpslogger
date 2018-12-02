@@ -142,7 +142,6 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-v4-24.2.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-fragment-24.2.1" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:/home/peter/Projects/gpslogger-para-peter/GPSLogger/libs/dropbox-android-sdk.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-24.2.1" level="project" />
     <orderEntry type="library" name="Gradle: oauth.signpost:signpost-core:1.2.1.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: oauth.signpost:signpost-commonshttp4:1.2.1.2@jar" level="project" />
     <orderEntry type="module" module-name="actionbarsherlock" />

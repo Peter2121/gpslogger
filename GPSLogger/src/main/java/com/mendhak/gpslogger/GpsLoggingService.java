@@ -35,6 +35,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 
 import com.mendhak.gpslogger.common.AppSettings;
 import com.mendhak.gpslogger.common.IActionListener;
@@ -564,8 +565,40 @@ public class GpsLoggingService extends Service implements IActionListener
     }
 
     /**
-     * Shows a notification icon in the status bar for GPS Logger
+     * New function for notifications
      */
+    private void ShowNotification() {
+
+        NumberFormat nf = new DecimalFormat("###.######");
+
+        String message = getString(R.string.gpslogger_still_running);
+        if (Session.hasValidLocation())
+        {
+            message = nf.format(Session.getCurrentLatitude()) + ","
+                    + nf.format(Session.getCurrentLongitude());
+        }
+
+        Intent intent = new Intent(this, GpsMainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+
+        builder.setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_LIGHTS)
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.drawable.gpsloggericon2)
+                .setTicker(message)
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(message)
+                .setContentIntent(contentIntent)
+                .setContentInfo(getString(R.string.app_name));
+
+        gpsNotifyManager.notify(NOTIFICATION_ID, builder.build());
+        Session.setNotificationVisible(true);
+    }
+    /**
+     * Shows a notification icon in the status bar for GPS Logger
+
     private void ShowNotification()
     {
         Utilities.LogDebug("GpsLoggingService.ShowNotification");
@@ -588,13 +621,14 @@ public class GpsLoggingService extends Service implements IActionListener
                     + nf.format(Session.getCurrentLongitude());
         }
 
-//        nfc.setLatestEventInfo(getApplicationContext(), getString(R.string.gpslogger_still_running),
-//                contentText, pending);
+//          TODO: FIX IT !!!
+        nfc.setLatestEventInfo(getApplicationContext(), getString(R.string.gpslogger_still_running),
+                contentText, pending);
 
         gpsNotifyManager.notify(NOTIFICATION_ID, nfc);
         Session.setNotificationVisible(true);
     }
-
+     */
     /**
      * Starts the location manager. There are two location managers - GPS and
      * Cell Tower. This code determines which manager to request updates from
@@ -629,22 +663,34 @@ public class GpsLoggingService extends Service implements IActionListener
         {
             Utilities.LogInfo("Requesting GPS location updates");
             // gps satellite based
-            gpsLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                    GPS_LOCATION_REQ_TIMEOUT, 0,
-                    gpsLocationListener);
-
-            gpsLocationManager.addGpsStatusListener(gpsLocationListener);
-
-            Session.setUsingGps(true);
+            try {
+                gpsLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                        GPS_LOCATION_REQ_TIMEOUT, 0,
+                        gpsLocationListener);
+                gpsLocationManager.addGpsStatusListener(gpsLocationListener);
+                Session.setUsingGps(true);
+            } catch (SecurityException ex) {
+                Utilities.LogError("StartGpsManager", ex);
+                SetFatalMessage(R.string.perm_location_not_granted);
+                StopLogging();
+                return;
+            }
         }
         else if (Session.isTowerEnabled())
         {
             Utilities.LogInfo("Requesting tower location updates");
             Session.setUsingGps(false);
             // Cell tower and wifi based
-            towerLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                    1000, 0,
-                    towerLocationListener);
+            try {
+                towerLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                        1000, 0,
+                        towerLocationListener);
+            } catch (SecurityException ex) {
+                Utilities.LogError("StartGpsManager", ex);
+                SetFatalMessage(R.string.perm_location_not_granted);
+                StopLogging();
+                return;
+            }
 
         }
         else

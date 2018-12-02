@@ -510,7 +510,12 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         {
             // Start the service in case it isn't already running
             Utilities.LogDebug("Trying to start service");
-            startService(serviceIntent);
+            /*
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(serviceIntent);
+            } else {*/
+                startService(serviceIntent);
+//            }
             Session.setBoundToService(false);
         }
         else {

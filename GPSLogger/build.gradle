@@ -60,7 +60,9 @@ dependencies {
     implementation files('libs/additionnal.jar')
     implementation files('libs/json-simple-1.1.1.jar')
     implementation files('libs/dropbox-android-sdk.jar')
-    implementation 'com.android.support:support-v4:24.2.1'
+    implementation ('com.android.support:support-v4:24.2.1') {
+        exclude module: 'support-media-compat'
+    }
     //    implementation 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     implementation 'commons-net:commons-net:2.2'
 //    implementation ('org.apache.httpcomponents:httpclient-android:4.3.5.1') {
