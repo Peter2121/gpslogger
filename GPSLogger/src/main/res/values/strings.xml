@@ -555,5 +555,7 @@
     <string name="confimport_activity_title">Import Config File</string>
     <string name="confimport_show_failed">Failed to show configuration file content.</string>
     <string name="perm_location_not_granted">ACCESS LOCATION permission is not granted.</string>
+    <string name="notif_channel_status">Status channel</string>
+    <string name="notif_channel_alert">Alert channel</string>
 
 </resources>

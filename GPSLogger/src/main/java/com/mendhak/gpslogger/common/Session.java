@@ -19,6 +19,7 @@ package com.mendhak.gpslogger.common;
 
 
 import android.app.Application;
+import android.app.NotificationChannel;
 import android.location.Location;
 
 import com.mendhak.gpslogger.loggers.IFileLogger;
@@ -58,6 +59,10 @@ public class Session extends Application
     public static int retryStartService=0;
     public static long lastPanicRestartService=0L;
 //    public static boolean isServiceStarting=false;
+    public static String CHANNEL_STATUS_ID = "GPSLOGGER_STATUS";
+    public static String CHANNEL_ALERT_ID = "GPSLOGGER_ALERT";
+//    public static NotificationChannel notifChannelStatus;
+//    public static NotificationChannel notifChannelAlert;
 
     private static final List<IFileLogger> loggers = new ArrayList<IFileLogger>();
 //

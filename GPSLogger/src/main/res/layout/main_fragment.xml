@@ -117,14 +117,8 @@
     <LinearLayout android:orientation="vertical"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content">
-        <!--
-            <Button android:id="@+id/buttonStart" android:layout_width="120px"
-            android:layout_height="wrap_content" android:tag="Start"
-            android:text="Start" /> <Button android:id="@+id/buttonStop"
-            android:layout_width="120px" android:layout_height="wrap_content"
-            android:tag="Stop" android:text="Stop" />
-        -->
         <ToggleButton android:id="@+id/buttonOnOff"
+                      android:focusable="true"
                       android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:textSize="15dip"

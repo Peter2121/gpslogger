@@ -23,6 +23,7 @@ package com.mendhak.gpslogger;
 
 import android.app.AlarmManager;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -31,6 +32,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.SystemClock;
@@ -78,6 +80,9 @@ public class GpsLoggingService extends Service implements IActionListener
     LocationManager gpsLocationManager;
     private LocationManager towerLocationManager;
 //    private static boolean isStarting = false;
+    private NotificationChannel notifChannelStatus;
+    private NotificationChannel notifChannelAlert;
+
 
     private Intent alarmIntent;
 
@@ -104,7 +109,19 @@ public class GpsLoggingService extends Service implements IActionListener
     {
         Utilities.LogDebug("GpsLoggingService.onCreate");
         nextPointAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+            gpsNotifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
+            notifChannelStatus = new NotificationChannel(Session.CHANNEL_STATUS_ID,
+                                                                    getString(R.string.notif_channel_status),
+                                                                    NotificationManager.IMPORTANCE_LOW);
+            gpsNotifyManager.createNotificationChannel(notifChannelStatus);
+            notifChannelAlert = new NotificationChannel(Session.CHANNEL_ALERT_ID,
+                                                                    getString(R.string.notif_channel_alert),
+                                                                    NotificationManager.IMPORTANCE_HIGH);
+            gpsNotifyManager.createNotificationChannel(notifChannelAlert);
+        }
         Utilities.LogInfo("GPSLoggerService created");
     }
 
@@ -118,7 +135,16 @@ public class GpsLoggingService extends Service implements IActionListener
         final Intent intt = intent;
 
         Session.setWaitingForAlarm(false);
-
+        // ************ Replaced here to satisfy Oreo
+        try
+        {
+            startForeground(NOTIFICATION_ID, getNotification());
+        }
+        catch (Exception ex)
+        {
+            System.out.print(ex.getMessage());
+        }
+        // ************
         if( ( (flags==START_FLAG_REDELIVERY) || (flags==START_FLAG_RETRY) ) && !Session.isStarted() ) {
 /*
             Normally should not happen but sometimes Session object values are lost on restart :(
@@ -453,23 +479,22 @@ public class GpsLoggingService extends Service implements IActionListener
         long mwt=0L;
         Utilities.LogDebug("GpsLoggingService.StartLogging");
         Session.setAddNewTrackSegment(true);
-//        Session.setLastTrackTime(System.currentTimeMillis());
-//        Session.setLastWaitTime(0L);
 
         if (Session.isStarted())
         {
             return;
         }
         Utilities.LogInfo("Starting logging procedures");
+        /*
         try
         {
-            startForeground(NOTIFICATION_ID, new Notification());
+            startForeground(NOTIFICATION_ID, getNotification());
         }
         catch (Exception ex)
         {
             System.out.print(ex.getMessage());
         }
-
+        */
 
         Session.setStarted(true);
 
@@ -531,7 +556,7 @@ public class GpsLoggingService extends Service implements IActionListener
         Utilities.LogDebug("GpsLoggingService.Notify");
         if (AppSettings.shouldShowInNotificationBar())
         {
-            gpsNotifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//            gpsNotifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
             ShowNotification();
         }
@@ -564,10 +589,7 @@ public class GpsLoggingService extends Service implements IActionListener
         }
     }
 
-    /**
-     * New function for notifications
-     */
-    private void ShowNotification() {
+    private Notification getNotification() {
 
         NumberFormat nf = new DecimalFormat("###.######");
 
@@ -581,19 +603,37 @@ public class GpsLoggingService extends Service implements IActionListener
         Intent intent = new Intent(this, GpsMainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
-        builder.setAutoCancel(true)
-                .setDefaults(Notification.DEFAULT_LIGHTS)
-                .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.drawable.gpsloggericon2)
-                .setTicker(message)
-                .setContentTitle(getString(R.string.app_name))
-                .setContentText(message)
-                .setContentIntent(contentIntent)
-                .setContentInfo(getString(R.string.app_name));
-
-        gpsNotifyManager.notify(NOTIFICATION_ID, builder.build());
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Notification.Builder builder = new Notification.Builder(this, Session.CHANNEL_STATUS_ID);
+            builder.setAutoCancel(true)
+                    .setDefaults(Notification.DEFAULT_LIGHTS)
+                    .setWhen(System.currentTimeMillis())
+                    .setSmallIcon(R.drawable.gpsloggericon2)
+                    .setTicker(message)
+                    .setContentTitle(getString(R.string.app_name))
+                    .setContentText(message)
+                    .setContentIntent(contentIntent)
+                    .setContentInfo(getString(R.string.app_name));
+            return builder.build();
+        } else {
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.setAutoCancel(true)
+                    .setDefaults(Notification.DEFAULT_LIGHTS)
+                    .setWhen(System.currentTimeMillis())
+                    .setSmallIcon(R.drawable.gpsloggericon2)
+                    .setTicker(message)
+                    .setContentTitle(getString(R.string.app_name))
+                    .setContentText(message)
+                    .setContentIntent(contentIntent)
+                    .setContentInfo(getString(R.string.app_name));
+            return builder.build();
+        }
+    }
+    /**
+     * New function for notifications
+     */
+    private void ShowNotification() {
+        gpsNotifyManager.notify(NOTIFICATION_ID, getNotification());
         Session.setNotificationVisible(true);
     }
     /**
