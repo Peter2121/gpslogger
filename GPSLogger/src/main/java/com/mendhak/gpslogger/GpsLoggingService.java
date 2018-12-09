@@ -109,9 +109,8 @@ public class GpsLoggingService extends Service implements IActionListener
     {
         Utilities.LogDebug("GpsLoggingService.onCreate");
         nextPointAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        gpsNotifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-            gpsNotifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
             notifChannelStatus = new NotificationChannel(Session.CHANNEL_STATUS_ID,
                                                                     getString(R.string.notif_channel_status),
