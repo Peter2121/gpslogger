@@ -432,5 +432,17 @@
 
     <string name="autoftp_setup_title">Настройки FTP</string>
     <string name="autoftp_setup_summary">Загрузка треков на сервер FTP(S).</string>
+  <string name="notif_channel_status">Статус</string>
+  <string name="notif_channel_alert">Предупреждение</string>
+  <string name="perm_location_not_granted">Нет прав доступа к данным о местоположении.</string>
+  <string name="altitude">Высота</string>
+  <string name="speed">Скорость</string>
+  <string name="direction">Направление</string>
+  <string name="glideratio">Качество</string>
+  <string name="pref_not_available">Отсутствует в данной версии</string>
+  <string name="faq_screen_title">Часто задаваемые вопросы</string>
+  <string name="confimport_button">Импорт</string>
+  <string name="confimport_activity_title">Импорт конфигурации из файла</string>
+  <string name="confimport_show_failed">Невозможно отобразить содержимое файла</string>
 
 </resources>

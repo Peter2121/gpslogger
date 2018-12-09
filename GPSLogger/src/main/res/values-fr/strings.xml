@@ -326,4 +326,18 @@
   <string name="ftp_upload">Transfert FTP</string>
   <string name="autoftp_setup_title">Configuration FTP</string>
   <string name="autoftp_setup_summary">Transférer vos fichiers vers un serveur FTP(S). Remarque : Ceci ne concerne pas SFTP.</string>
+  <string name="notif_channel_status">Statut</string>
+  <string name="notif_channel_alert">Alert</string>
+  <string name="perm_location_not_granted">Permission ACCESS LOCATION n\'est pas accordée</string>
+  <string name="autoftp_implicit">FTP avec encryption SSL</string>
+  <string name="autoftp_implicit_summary">Laisser vide si vous n\'etes pas sure</string>
+  <string name="autoftp_ssltls_summary">None, SSL ou TLS. Utiliser \'None\' pour les connexions non securisées.</string>
+  <string name="autoftp_useftps_summary">Activer la protection SSL pour FTP trafic</string>
+  <string name="confimport_activity_title">Importer la configuration depuis un fichier</string>
+  <string name="confimport_button">Importer</string>
+  <string name="confimport_show_failed">Impossible de visualiser le contenu du fichier</string>
+  <string name="crit_battery_dialog_title">Entrer pour-cents</string>
+  <string name="crit_battery_summary">Tracage GPS sera arrêté à ce niveau de change de la batterie</string>
+  <string name="crit_battery_title">Niveau de batterie critique</string>
+  <string name="email_location">Envoyer la position par email</string>
 </resources>

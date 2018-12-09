@@ -51,7 +51,7 @@
     <string name="btn_stop_logging">Stop Logging</string>
 
 
-    <string name="gpslogger_still_running">GPSLogger is still running.</string>
+    <string name="gpslogger_still_running">GPSLogger is running.</string>
 
     <string name="summary_loggingto">Logging to:</string>
     <string name="summary_loggingto_screen">screen only</string>
