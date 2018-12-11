@@ -82,6 +82,8 @@ public class GpsLoggingService extends Service implements IActionListener
 //    private static boolean isStarting = false;
     private NotificationChannel notifChannelStatus;
     private NotificationChannel notifChannelAlert;
+    private Notification.Builder builder;
+    private NotificationCompat.Builder compat_builder;
 
 
     private Intent alarmIntent;
@@ -121,6 +123,7 @@ public class GpsLoggingService extends Service implements IActionListener
                                                                     NotificationManager.IMPORTANCE_HIGH);
             gpsNotifyManager.createNotificationChannel(notifChannelAlert);
         }
+        createNotificationBuilder();
         Utilities.LogInfo("GPSLoggerService created");
     }
 
@@ -588,6 +591,30 @@ public class GpsLoggingService extends Service implements IActionListener
         }
     }
 
+    private void createNotificationBuilder() {
+
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder = new Notification.Builder(this, Session.CHANNEL_STATUS_ID);
+            builder.setAutoCancel(true)
+                    .setDefaults(Notification.DEFAULT_LIGHTS)
+                    .setSmallIcon(R.drawable.gpsloggericon2)
+                    .setContentTitle(getString(R.string.app_name))
+                    .setContentInfo(getString(R.string.app_name))
+                    .setOnlyAlertOnce(true);
+            compat_builder = null;
+        } else {
+            compat_builder = new NotificationCompat.Builder(this);
+            compat_builder.setAutoCancel(true)
+                    .setDefaults(Notification.DEFAULT_LIGHTS)
+                    .setSmallIcon(R.drawable.gpsloggericon2)
+                    .setContentTitle(getString(R.string.app_name))
+                    .setContentInfo(getString(R.string.app_name))
+                    .setOnlyAlertOnce(true);
+            builder = null;
+        }
+
+    }
+
     private Notification getNotification() {
 
         NumberFormat nf = new DecimalFormat("###.######");
@@ -602,38 +629,36 @@ public class GpsLoggingService extends Service implements IActionListener
         Intent intent = new Intent(this, GpsMainActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Notification.Builder builder = new Notification.Builder(this, Session.CHANNEL_STATUS_ID);
-            builder.setAutoCancel(true)
-                    .setDefaults(Notification.DEFAULT_LIGHTS)
-                    .setWhen(System.currentTimeMillis())
-                    .setSmallIcon(R.drawable.gpsloggericon2)
-                    .setTicker(message)
-                    .setContentTitle(getString(R.string.app_name))
-                    .setContentText(message)
-                    .setContentIntent(contentIntent)
-                    .setContentInfo(getString(R.string.app_name));
-            return builder.build();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)  {
+            if(builder == null) createNotificationBuilder();
+            if(builder != null) {
+                builder.setWhen(System.currentTimeMillis())
+                        .setTicker(message)
+                        .setContentText(message)
+                        .setContentIntent(contentIntent);
+                return builder.build();
+            }
         } else {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-            builder.setAutoCancel(true)
-                    .setDefaults(Notification.DEFAULT_LIGHTS)
-                    .setWhen(System.currentTimeMillis())
-                    .setSmallIcon(R.drawable.gpsloggericon2)
-                    .setTicker(message)
-                    .setContentTitle(getString(R.string.app_name))
-                    .setContentText(message)
-                    .setContentIntent(contentIntent)
-                    .setContentInfo(getString(R.string.app_name));
-            return builder.build();
+            if(compat_builder == null) createNotificationBuilder();
+            if(compat_builder != null) {
+                compat_builder.setWhen(System.currentTimeMillis())
+//                        .setTicker(message)
+                        .setContentText(message)
+                        .setContentIntent(contentIntent);
+                return compat_builder.build();
+            }
         }
+        return null;    // Normally never happens!!
     }
     /**
      * New function for notifications
      */
     private void ShowNotification() {
-        gpsNotifyManager.notify(NOTIFICATION_ID, getNotification());
-        Session.setNotificationVisible(true);
+        Notification notif = getNotification();
+        if( (notif != null) && (gpsNotifyManager != null) ) {
+            gpsNotifyManager.notify(NOTIFICATION_ID, notif);
+            Session.setNotificationVisible(true);
+        }
     }
     /**
      * Shows a notification icon in the status bar for GPS Logger
