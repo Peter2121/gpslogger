@@ -79,7 +79,6 @@ public class ConfImportActivity extends SherlockActivity
         Uri uri = getIntent().getData();
         String path = "";
         String str = "";
-//        String typemime = "";
         String scheme = "";
         File mySetFile = null;
 
@@ -91,26 +90,31 @@ public class ConfImportActivity extends SherlockActivity
             if (scheme.equals(ContentResolver.SCHEME_CONTENT)) {
                     ContentResolver cr = getContentResolver();
 //                    ContentProviderClient cpc = cr.acquireContentProviderClient(uri);
-//                    typemime = cr.getType(uri);
                     Uri attachmentUri = null;
                     Cursor c = cr.query(uri, new String[] { Columns.DATA }, null, null, null);
+//                    Cursor c = cr.query(uri, null, null, null, null);
                     if (c != null) {
-                        try {
-                            if (c.moveToFirst()) {
-                                String struri=c.getString(0);
-                                if(struri!=null) {
-                                    attachmentUri = Uri.parse(struri);
-                                    int imax = c.getCount();
-                                    int jmax = c.getColumnCount();
-                                    for (int i = 0; i < imax; i++) {
-                                        if (c.moveToNext()) str = c.getString(0);
-                                    }
-                                }
-                                else attachmentUri = null;
+                        if(c.getColumnCount()>0) {
+                            try {
+                                if (c.moveToFirst()) {
+                                    String struri = c.getString(0);
+                                    if (struri != null) {
+                                        attachmentUri = Uri.parse(struri);
+                                        Utilities.LogDebug("Got URI for attachment: " + attachmentUri + " from " + struri);
+                                        int imax = c.getCount();
+                                        for (int i = 0; i < imax; i++) {
+                                            if (c.moveToNext()) str = c.getString(0);
+                                        }
+                                    } else attachmentUri = null;
+                                } else attachmentUri = null;
+                            } catch (IllegalStateException ex) {
+//                                Toast.makeText(this, "Exception: " + ex.toString(), Toast.LENGTH_LONG).show();
+                                Utilities.LogDebug("Illegal state of cursor");
+                                Utilities.LogError("ConfImportActivity.onCreate", ex);
+                            } finally {
+                                c.close();
                             }
-                            else attachmentUri = null;
-
-                        } finally {
+                        } else {
                             c.close();
                         }
                     }
@@ -121,7 +125,6 @@ public class ConfImportActivity extends SherlockActivity
             }
             if(scheme==null) {
                 path = uri.getPath();
-//                fileName = uri.getLastPathSegment();
                 if (path != null) {
                     if (path.length() > 0) {
                         mySetFile = new File(path);
@@ -133,8 +136,6 @@ public class ConfImportActivity extends SherlockActivity
                                     wholeFile += (str + "\n");
                                 }
                                 br.close();
-//                    Intent settingsActivity = new Intent(context, GpsSettingsActivity.class);
-//                    context.startActivity(settingsActivity);
                             } else
                                 Toast.makeText(this, R.string.confimport_show_failed, Toast.LENGTH_LONG).show();
                         } catch (Throwable t) {
@@ -164,7 +165,6 @@ public class ConfImportActivity extends SherlockActivity
             }
             else if (scheme.equals(ContentResolver.SCHEME_FILE)) {
                 path = uri.getPath();
-//                fileName = uri.getLastPathSegment();
                 if (path != null) {
                     if (path.length() > 0) {
                         mySetFile = new File(path);
@@ -176,8 +176,6 @@ public class ConfImportActivity extends SherlockActivity
                                     wholeFile += (str + "\n");
                                 }
                                 br.close();
-//                    Intent settingsActivity = new Intent(context, GpsSettingsActivity.class);
-//                    context.startActivity(settingsActivity);
                             } else
                                 Toast.makeText(this, R.string.confimport_show_failed, Toast.LENGTH_LONG).show();
                         } catch (Throwable t) {
