@@ -210,7 +210,12 @@ public class PrefsIO {
         Intent chooseFile;
         Intent intent;
         chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-        chooseFile.setType("file/*");
+        chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
+//        chooseFile.setType("text/comma-separated-values");
+//        chooseFile.setType("text/csv");
+        String[] mimeTypes = { "text/csv", "text/comma-separated-values" };
+        chooseFile.setType("*/*");
+        chooseFile.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
         final PackageManager packageManager = context.getPackageManager();
         List<ResolveInfo> list = packageManager.queryIntentActivities(chooseFile, 0);
         if(list.size()>0) {
