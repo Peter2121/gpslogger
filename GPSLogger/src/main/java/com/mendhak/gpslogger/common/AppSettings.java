@@ -272,19 +272,19 @@ public class AppSettings extends Application
 
     /**
      * @return the showInNotificationBar
-     */
     public static boolean shouldShowInNotificationBar()
     {
         return showInNotificationBar;
     }
+     */
 
     /**
      * @param showInNotificationBar the showInNotificationBar to set
-     */
     static void setShowInNotificationBar(boolean showInNotificationBar)
     {
         AppSettings.showInNotificationBar = showInNotificationBar;
     }
+     */
 
 
     /**

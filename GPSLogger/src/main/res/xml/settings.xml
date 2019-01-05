@@ -9,6 +9,11 @@
         android:defaultValue="simple"
         android:entryValues="@array/pref_mode_values"/>
 
+    <Preference
+        android:title="@string/enabledisablegps_title"
+        android:summary="@string/enabledisablegps_summary"
+        android:key="enableDisableGps" />
+
     <PreferenceCategory android:title="@string/pref_loggers_catname">
 
         <CheckBoxPreference
@@ -56,71 +61,52 @@
 
     <PreferenceCategory android:title="@string/pref_loggers_conf">
 
-
         <PreferenceScreen
-            android:title="@string/pref_livetracker_title"
-            android:summary="@string/pref_livetracker_summary">
+            android:title="@string/pref_general_title"
+            android:summary="@string/pref_general_summary">
+            <!--
+                        <CheckBoxPreference
+                            android:key="show_notification"
+                            android:summary="@string/show_notification_summary"
+                            android:title="@string/show_notification_title"
+                            android:defaultValue="true" />
+            -->
+            <CheckBoxPreference
+                android:key="modular_view_advancedP"
+                android:summary="@string/modular_view_summary"
+                android:title="@string/modular_view_title"
+                android:defaultValue="false" />
 
-            <Preference
-                android:title="@string/opengts_setup_title"
-                android:summary="@string/opengts_setup_summary"
-                android:key="opengts_setup">
-                <intent android:action="net.kataplop.gpslogger.OPENGTS_SETUP" />
-            </Preference>
+            <CheckBoxPreference
+                android:key="force_screen_on"
+                android:summary="@string/force_screen_on_summary"
+                android:title="@string/force_screen_on_title"
+                android:defaultValue="false" />
 
-            <Preference
-                android:title="@string/skylines_setup_title"
-                android:summary="@string/skylines_setup_summary"
-                android:key="skylines_setup">
-                <intent android:action="net.kataplop.gpslogger.SKYLINES_SETUP" />
-            </Preference>
+            <CheckBoxPreference
+                android:title="@string/startonbootup_title"
+                android:summary="@string/startonbootup_summary"
+                android:key="startonbootup"
+                android:defaultValue="false" />
 
-            <Preference
-                android:title="@string/livetrack24_setup_title"
-                android:summary="@string/livetrack24_setup_summary"
-                android:key="livetrack24_setup">
-                <intent android:action="net.kataplop.gpslogger.LIVETRACK24_SETUP" />
-            </Preference>
-
-            <EditTextPreference
-                android:key="abst_logger_minbufsize"
-                android:title="@string/abst_logger_minbufsize_title"
-                android:summary="@string/abst_logger_minbufsize_summary"
-                android:dialogTitle="@string/abst_logger_minbufsize_dialog_title"
-                android:numeric="integer"
-                android:maxLength="2"
-                android:hint="@string/abst_logger_minbufsize_hint"
-                android:defaultValue="1" />
-
-            <EditTextPreference
-                android:key="abst_logger_maxbufsize"
-                android:title="@string/abst_logger_maxbufsize_title"
-                android:summary="@string/abst_logger_maxbufsize_summary"
-                android:dialogTitle="@string/abst_logger_maxbufsize_dialog_title"
-                android:numeric="integer"
-                android:maxLength="3"
-                android:hint="@string/abst_logger_maxbufsize_hint"
-                android:defaultValue="32" />
+            <CheckBoxPreference
+                android:title="@string/useimperial_title"
+                android:summary="@string/useimperial_summary"
+                android:key="useImperial"
+                android:defaultValue="false" />
 
             <EditTextPreference
-                android:key="maxwaittime"
-                android:title="@string/maxwaittime_title"
-                android:summary="@string/maxwaittime_summary"
-                android:dialogTitle="@string/maxwaittime_title"
-                android:numeric="integer"
-                android:maxLength="5"
-                android:hint="@string/maxwaittime_hint"
-                android:defaultValue="300" />
+                android:key="msg_template"
+                android:title="@string/msg_template_title"
+                android:summary="@string/msg_template_summary"
+                android:dialogTitle="@string/msg_template_dialog_title"
+                android:defaultValue="@string/sharing_template_default" />
 
-            <EditTextPreference
-                android:key="maxwaitcycles"
-                android:title="@string/maxwaitcycles_title"
-                android:summary="@string/maxwaitcycles_summary"
-                android:dialogTitle="@string/maxwaitcycles_title"
-                android:numeric="integer"
-                android:maxLength="2"
-                android:hint="@string/maxwaitcycles_hint"
-                android:defaultValue="4" />
+            <CheckBoxPreference
+                android:title="@string/debuglog_title"
+                android:summary="@string/debuglog_summary"
+                android:key="debugtofile_advancedP"
+                android:defaultValue="false" />
 
         </PreferenceScreen>
 
@@ -214,81 +200,73 @@
 
             </PreferenceCategory>
         </PreferenceScreen>
-        <PreferenceScreen
-            android:title="@string/flying_pref_title"
-            android:summary="@string/flying_pref_summary">
-            <EditTextPreference
-                android:key="flying_pref_pilot_name"
-                android:title="@string/flying_pref_pilot_name_title"
-                android:summary="@string/flying_pref_pilot_name_summary"
-                android:dialogTitle="@string/flying_pref_pilot_name_diag_title" />
-
-            <EditTextPreference
-                android:key="flying_pref_glider_name"
-                android:title="@string/flying_pref_glider_name_title"
-                android:summary="@string/flying_pref_glider_name_summary"
-                android:dialogTitle="@string/flying_pref_glider_name_diag_title" />
-
-            <EditTextPreference
-                android:key="flying_pref_glider_id"
-                android:title="@string/flying_pref_glider_id_title"
-                android:summary="@string/flying_pref_glider_id_summary"
-                android:dialogTitle="@string/flying_pref_glider_id_diag_title" />
-        </PreferenceScreen>
 
         <PreferenceScreen
-            android:title="@string/pref_general_title"
-            android:summary="@string/pref_general_summary">
-            <CheckBoxPreference
-                android:key="show_notification"
-                android:summary="@string/show_notification_summary"
-                android:title="@string/show_notification_title"
-                android:defaultValue="true" />
-
-            <CheckBoxPreference
-                android:key="modular_view_advancedP"
-                android:summary="@string/modular_view_summary"
-                android:title="@string/modular_view_title"
-                android:defaultValue="false" />
-
-            <CheckBoxPreference
-                android:key="force_screen_on"
-                android:summary="@string/force_screen_on_summary"
-                android:title="@string/force_screen_on_title"
-                android:defaultValue="false" />
-
-            <CheckBoxPreference
-                android:title="@string/startonbootup_title"
-                android:summary="@string/startonbootup_summary"
-                android:key="startonbootup"
-                android:defaultValue="false" />
-
-            <CheckBoxPreference
-                android:title="@string/useimperial_title"
-                android:summary="@string/useimperial_summary"
-                android:key="useImperial"
-                android:defaultValue="false" />
-
-            <EditTextPreference
-                android:key="msg_template"
-                android:title="@string/msg_template_title"
-                android:summary="@string/msg_template_summary"
-                android:dialogTitle="@string/msg_template_dialog_title"
-                android:defaultValue="@string/sharing_template_default" />
+            android:title="@string/pref_livetracker_title"
+            android:summary="@string/pref_livetracker_summary">
 
             <Preference
-                android:title="@string/enabledisablegps_title"
-                android:summary="@string/enabledisablegps_summary"
-                android:key="enableDisableGps" />
+                android:title="@string/opengts_setup_title"
+                android:summary="@string/opengts_setup_summary"
+                android:key="opengts_setup">
+                <intent android:action="net.kataplop.gpslogger.OPENGTS_SETUP" />
+            </Preference>
 
-            <CheckBoxPreference
-                android:title="@string/debuglog_title"
-                android:summary="@string/debuglog_summary"
-                android:key="debugtofile_advancedP"
-                android:defaultValue="false" />
+            <Preference
+                android:title="@string/skylines_setup_title"
+                android:summary="@string/skylines_setup_summary"
+                android:key="skylines_setup">
+                <intent android:action="net.kataplop.gpslogger.SKYLINES_SETUP" />
+            </Preference>
+
+            <Preference
+                android:title="@string/livetrack24_setup_title"
+                android:summary="@string/livetrack24_setup_summary"
+                android:key="livetrack24_setup">
+                <intent android:action="net.kataplop.gpslogger.LIVETRACK24_SETUP" />
+            </Preference>
+
+            <EditTextPreference
+                android:key="abst_logger_minbufsize"
+                android:title="@string/abst_logger_minbufsize_title"
+                android:summary="@string/abst_logger_minbufsize_summary"
+                android:dialogTitle="@string/abst_logger_minbufsize_dialog_title"
+                android:numeric="integer"
+                android:maxLength="2"
+                android:hint="@string/abst_logger_minbufsize_hint"
+                android:defaultValue="1" />
+
+            <EditTextPreference
+                android:key="abst_logger_maxbufsize"
+                android:title="@string/abst_logger_maxbufsize_title"
+                android:summary="@string/abst_logger_maxbufsize_summary"
+                android:dialogTitle="@string/abst_logger_maxbufsize_dialog_title"
+                android:numeric="integer"
+                android:maxLength="3"
+                android:hint="@string/abst_logger_maxbufsize_hint"
+                android:defaultValue="32" />
+
+            <EditTextPreference
+                android:key="maxwaittime"
+                android:title="@string/maxwaittime_title"
+                android:summary="@string/maxwaittime_summary"
+                android:dialogTitle="@string/maxwaittime_title"
+                android:numeric="integer"
+                android:maxLength="5"
+                android:hint="@string/maxwaittime_hint"
+                android:defaultValue="300" />
+
+            <EditTextPreference
+                android:key="maxwaitcycles"
+                android:title="@string/maxwaitcycles_title"
+                android:summary="@string/maxwaitcycles_summary"
+                android:dialogTitle="@string/maxwaitcycles_title"
+                android:numeric="integer"
+                android:maxLength="2"
+                android:hint="@string/maxwaitcycles_hint"
+                android:defaultValue="4" />
 
         </PreferenceScreen>
-
 
         <PreferenceScreen
             android:key="autosend_preferencescreen_advancedP"
@@ -348,6 +326,35 @@
             </PreferenceCategory>
 
         </PreferenceScreen>
+
+        <PreferenceScreen
+            android:title="@string/flying_pref_title"
+            android:summary="@string/flying_pref_summary">
+            <EditTextPreference
+                android:key="flying_pref_pilot_name"
+                android:title="@string/flying_pref_pilot_name_title"
+                android:summary="@string/flying_pref_pilot_name_summary"
+                android:dialogTitle="@string/flying_pref_pilot_name_diag_title" />
+
+            <EditTextPreference
+                android:key="flying_pref_glider_name"
+                android:title="@string/flying_pref_glider_name_title"
+                android:summary="@string/flying_pref_glider_name_summary"
+                android:dialogTitle="@string/flying_pref_glider_name_diag_title" />
+
+            <EditTextPreference
+                android:key="flying_pref_glider_brand"
+                android:title="@string/flying_pref_glider_brand_title"
+                android:summary="@string/flying_pref_glider_brand_summary"
+                android:dialogTitle="@string/flying_pref_glider_brand_diag_title" />
+
+            <EditTextPreference
+                android:key="flying_pref_glider_id"
+                android:title="@string/flying_pref_glider_id_title"
+                android:summary="@string/flying_pref_glider_id_summary"
+                android:dialogTitle="@string/flying_pref_glider_id_diag_title" />
+        </PreferenceScreen>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

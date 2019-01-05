@@ -440,7 +440,8 @@
   <string name="direction">Направление</string>
   <string name="glideratio">Качество</string>
   <string name="pref_not_available">Отсутствует в данной версии</string>
-  <string name="faq_screen_title">Часто задаваемые вопросы</string>
+  <string name="faq_screen_title">Помощь</string>
+  <string name="menu_faq">Помощь</string>
   <string name="confimport_button">Импорт</string>
   <string name="confimport_activity_title">Импорт конфигурации из файла</string>
   <string name="confimport_show_failed">Невозможно отобразить содержимое файла</string>

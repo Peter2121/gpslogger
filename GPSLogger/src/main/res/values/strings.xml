@@ -370,6 +370,10 @@
     <string name="flying_pref_glider_name_summary">Glider name (eg. aspen)</string>
     <string name="flying_pref_glider_name_diag_title">Enter glider name</string>
 
+    <string name="flying_pref_glider_brand_title">Glider brand</string>
+    <string name="flying_pref_glider_brand_summary">Glider brand (eg. Icaro2000)</string>
+    <string name="flying_pref_glider_brand_diag_title">Enter glider brand</string>
+
     <string name="flying_pref_glider_id_title">Glider ID</string>
     <string name="flying_pref_glider_id_summary">Glider ID if applicable (eg. competition)</string>
     <string name="flying_pref_glider_id_diag_title">Enter glider ID</string>
@@ -548,8 +552,8 @@
     <string name="autoftp_setup_title">FTP Setup</string>
     <string name="autoftp_setup_summary">Upload your files to an FTP(S) server. Note: This does not cover SFTP.</string>
 
-    <string name="faq_screen_title">Frequently asked questions</string>
-    <string name="menu_faq">Help and FAQ</string>
+    <string name="faq_screen_title">Help</string>
+    <string name="menu_faq">Help</string>
 
     <string name="confimport_button">Import</string>
     <string name="confimport_activity_title">Import Config File</string>

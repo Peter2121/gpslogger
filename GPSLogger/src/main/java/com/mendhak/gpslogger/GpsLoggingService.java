@@ -556,9 +556,10 @@ public class GpsLoggingService extends Service implements IActionListener
     {
 
         Utilities.LogDebug("GpsLoggingService.Notify");
+        ShowNotification();
+/*
         if (AppSettings.shouldShowInNotificationBar())
         {
-//            gpsNotifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
             ShowNotification();
         }
@@ -566,6 +567,7 @@ public class GpsLoggingService extends Service implements IActionListener
         {
             RemoveNotification();
         }
+*/
     }
 
     /**
@@ -685,7 +687,6 @@ public class GpsLoggingService extends Service implements IActionListener
                     + nf.format(Session.getCurrentLongitude());
         }
 
-//          TODO: FIX IT !!!
         nfc.setLatestEventInfo(getApplicationContext(), getString(R.string.gpslogger_still_running),
                 contentText, pending);
 

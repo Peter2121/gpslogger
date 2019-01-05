@@ -19,6 +19,7 @@
 package com.mendhak.gpslogger;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
@@ -28,6 +29,8 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.mendhak.gpslogger.common.Utilities;
 import net.kataplop.gpslogger.R;
+
+import java.util.Locale;
 
 public class Faqtivity extends SherlockActivity
 {
@@ -46,10 +49,24 @@ public class Faqtivity extends SherlockActivity
 
         setContentView(R.layout.faq);
 
+        String fileName = "help.html";
         WebView browser = (WebView)findViewById(R.id.faqwebview);
         WebSettings settings = browser.getSettings();
-        settings.setJavaScriptEnabled(true);
-        browser.loadUrl("file:///android_asset/faq.html");
+        settings.setJavaScriptEnabled(false);
+//        String deviceLocale=Locale.getDefault().getLanguage();
+        String deviceLocale=getResources().getConfiguration().locale.getLanguage();
+        Utilities.LogDebug("Got default locale: "+deviceLocale);
+        switch(deviceLocale) {
+            case "ru":
+                fileName = "help_ru.html";
+                break;
+            case "fr":
+                fileName = "help_fr.html";
+                break;
+            default:
+                break;
+        }
+        browser.loadUrl("file:///android_asset/"+fileName);
 
         // enable the home button so you can go back to the main screen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

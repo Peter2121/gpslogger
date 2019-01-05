@@ -326,6 +326,8 @@
   <string name="ftp_upload">Transfert FTP</string>
   <string name="autoftp_setup_title">Configuration FTP</string>
   <string name="autoftp_setup_summary">Transférer vos fichiers vers un serveur FTP(S). Remarque : Ceci ne concerne pas SFTP.</string>
+  <string name="faq_screen_title">Aide</string>
+  <string name="menu_faq">Aide</string>
   <string name="notif_channel_status">Statut</string>
   <string name="notif_channel_alert">Alert</string>
   <string name="perm_location_not_granted">Permission ACCESS LOCATION n\'est pas accordée</string>

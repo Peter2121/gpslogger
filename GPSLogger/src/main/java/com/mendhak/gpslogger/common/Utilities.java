@@ -210,7 +210,7 @@ public class Utilities
         AppSettings.setLivetrack24Username(prefs.getString("livetrack24_username", ""));
         AppSettings.setLivetrack24Password(prefs.getString("livetrack24_password", ""));
         AppSettings.setLogToOpenGTS(prefs.getBoolean("log_opengts", false));
-        AppSettings.setShowInNotificationBar(prefs.getBoolean("show_notification", true));
+//        AppSettings.setShowInNotificationBar(prefs.getBoolean("show_notification", true));
         AppSettings.setPreferCellTower(prefs.getBoolean("prefer_celltower", false));
 
         String minimumDistanceString = prefs.getString("distance_before_logging", "0");
