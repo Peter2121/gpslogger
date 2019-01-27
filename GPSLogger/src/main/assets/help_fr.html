@@ -1,6 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-    <head></head>
-    <body>
-        <h3>Travail en cours...</h3>
-    </body>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>GPSLogger Flight</title>
+</head>
+<body lang="fr-FR">
+<h3>GPSLogger Flight</h3>
+<div>
+    Le logiciel est conçu pour l'enregistrement de la position géographique de votre smartphone
+    à l'aide les systèmes GPS, GLONASS, etc. (en fonction de la prise en charge de ces systèmes par le smartphone).
+    Il est également possible d'utiliser les données de positionnement depuis les antennes GPRS/3G
+    et les points d'accès Wi-Fi (cependant, une telle l'approche n'est pas recommandée en raison de la précision assez faible des données).
+    Les données sont enregistrées dans les fichiers du dossier GPSLogger situé dans la racine de la carte mémoire SD
+    (réelle ou virtuelle - en fonction de smartphone). Les formats suivants de fichiers sont prises en charge : KML, IGC, GPX, TXT.
+    Les données de géolocalisation peuvent être envoyés vers les autres serveurs en utilisant les protocoles Internet différents.
+    Un tel envoi est possible au moment de l'enregistrement des traces ou à la fin de l'enregistrement.
+    Il est possibile d'envoyer les données de géolocalisation en utilisant les methodes suivantes:
+    <ul>
+        <li>
+            L'envoi de la position en temps réel aux serveurs OpenGTS, Livetrack24, SkyLines (il est possible d'envoyer chaque point séparément,
+            ou utiliser un envoi groupé  - pour une optimisation de la consommation de l'enregie);
+        </li>
+        <li>
+            Envoi périodique de fichier de traces par e-mail;
+        </li>
+        <li>
+            Téléversement périodique de fichier de traces par le protocole FTP;
+        </li>
+        <li>
+            Téléversement périodique de fichier de traces vers le serveur DropBox;
+        </li>
+        <li>
+            Téléversement périodique de fichier de traces vers le serveur OpenStreetMaps.
+        </li>
+    </ul>
+    En plus, il est possible d'envoyer les coordonnées et les fichiers de traces en mode manuel en utilisant tous les programmes
+    disponibles sur le smartphone, qui prennent en charge l'envoi des données en format texte ou l'envoi de fichiers (SMS, WhatsApp, GMail, Viber, etc.)
+</div>
+<div>
+    Le logiciel GPSLogger Flight fonctionne sur les smartphones et les tablettes sous le systeme d'exploitation Android.
+    Version minimale d'Android, sous laquelle fonctionne le logiciel - 2.3.3. La version minimale supportée est 4.4.4.
+    Le logiciel n'a pas besoin de Google Services et ne les utilise pas. Lors de première démarrage de GPSLogger Flight il demande
+    les permissions d'accès aux services de géolocalisation et les les permissions d'accès à la carte mémoire SD (réelle ou virtuelle - en fonction de smartphone).
+    Ces permissions sont <b>absolument indisponsables</b> pour le fonctionnement du logiciel. En plus le logiciel a besoin d'accéder aux fichiers
+    attachés aux mails pour l'importation directe de la configuration depuis les mails.
+</div>
+<div>
+    Le logiciel GPSLogger Flight prevoit des nombreuses possibilités pour parametrage, presque tous les paramètres d'enregistrement
+    et d'envoi de traces peuvent être personnalisés. Les paramètres de configuration peuvent être enregistrés dans un fichier texte avec l'extension CSV.
+    Ce fichier peut être modifié facilement dans un éditeur de texte ou dans un logiciel d'édition des feuilles de calcul (par exemple, Excel).
+    GPSLogger Flight supporte une importation de données à partir de fichier CSV placé dans le systeme de fichiers de smartphone
+    (un cas de presence d'un explorateur de fichiers), attaché à un mail ou placé directement dans le dossier GPSLogger dans la racine
+    de la carte mémoire SD (réelle ou virtuelle - en fonction de smartphone).
+</div>
+<div>
+    Le logiciel GPSLogger Flight est optimisé pour fonctionner avec le serveur OpenGTS
+    disponibles sur le site <a href="https://gts.flytrace.com/">flytrace.com</a>.
+    Après un enregistrement sur le site un e-mail sera envoyé avec le fichier de configuration déjà prêt et optimisé pour ce service.
+    Importation du fichier dans le logiciel permet de commencer rapidement le tracking sans nécessité de rentrer dans les details de parametres.
+    Le fonctionnement de GPSLogger Flight avec les autres serveurs OpenGTS necessite une configuration manuelle, les problèmes d'affichage
+    d'altitude sont possibles dans ce cas car cette information n'est pas traité par les serveurs OpenGTS par défaut.
+</div>
+<div>
+    Il y a deux modes de fonctionnement de la partie réglages dans le programme de GPSLogger Flight - simple et avancée.
+    L'élément de menu <i>Mode de gestion de paramètres</i> qui est placé sur l'ecran principal de la section
+    de géstion de parametres (<i>Menu -&gt; Paramètres</i>) est prevu pour acéder au changement du mode.
+    Sur le même l'écran, on peut accéder directement à la géstion de GPS dans les paramètres du systeme Android.
+    Le mode avancé de reglage permet d'activer ou de désactiver sur le même l'écran les paramètres suivants:
+    <ul>
+        <li>
+            <b>Enregistrement dans les fichiers GPX / KML / IGC / TXT</b>
+        </li>
+        <li>
+            <b>L'envoi de données aux serveurs OpenGTS / SkyLines / Livetrack24 (live-tracking)</b>
+        </li>
+    </ul>
+    En plus, depuis cet écran on peut accéder aux écrans de gestion de paramètres suivants:
+    <ul>
+        <li>
+            <b>Options générales;</b>
+        </li>
+        <li>
+            <b>Détails de l'enregistrement</b> (utilisés pour l'enregistrement dans les fichiers, et pour le live-tracking);
+        </li>
+        <li>
+            <b>Paramètres de live-tracking</b> - configuration des paramètres d'envoi de points GPS et l'accès
+            aux écrans de configuration de paramètres des serveurs live-tracking prises en charge - OpenGTS, SkyLines, Livetrack24;
+        </li>
+        <li>
+            <b>Paramètres d'envoi automatique</b> - configuration des paramètres d'envoi automatique de fichiers de traces
+            et accès aux écrans de configuration de paramètres des serveurs E-Mail, FTP, Dropbox, OpenStreetMaps.
+        </li>
+        <li>
+            <b>Données personnelles</b> - ces données sont utilisées lors de l'enregistrement de traces dans des fichiers au format IGC;
+        </li>
+    </ul>
+</div>
+<div>
+    L'écran d'<i>Options générales</i> permet de modifier les paramètres suivants:
+    <ul>
+        <li>
+            <b>Utiliser l'écran modulaire</b> - utiliser une interface alternative avec les informations sur la vitesse
+            l'altitude, la finesse et la direction de mouvement lisibles facilement.
+        </li>
+        <li>
+            <b>Garder l'écran allumé</b>. L'activation de cette option permet d'éviter
+            l'extinction automatique de l'écran de smartphone.
+            Évidemment, activation de ce mode augmente considérablement la consommation de l'energie.
+        </li>
+        <li>
+            <b>Démarrage automatique</b>. Cette option active le demarrage automatique de l'application
+            au démarrage du système et le lancement d'enregistrement de traces GPS.
+        </li>
+        <li>
+            <b>Utilisez les unités impériales</b> - active l'utilisation des pieds, mille etc. comme unités de mesure.
+        </li>
+        <li>
+            <b>Modèle de message</b>. Lorsque les coordonnées sont envoyés dans le texte de messages (e-mail, SMS, WhatsApp, etc.)
+            le format des messages peut être personnalisé (afin d'envoyer, par exemple, un lien vers la position sur la carte Google Maps ou Mappy).
+            Le modèle de message sert à cela. Dans le texte, vous pouvez utiliser les variables spéciales qui seront remplacés
+            par des coordonnées GPS dans les formats différents. Les variables suivantes sont disponibles:
+            <ul>
+                <li>
+                    <i>LATDD</i> - La latitude, degrés décimaux
+                </li>
+                <li>
+                    <i>LONDD</i> - La longitude, degrés décimaux
+                </li>
+                <li>
+                    <i>LATD</i> - La latitude, degrés integers
+                </li>
+                <li>
+                    <i>LOND</i> - La longitude, degrés integers
+                </li>
+                <li>
+                    <i>LATM</i> - La latitude, minutes integers
+                </li>
+                <li>
+                    <i>LONM</i> - La longitude, minutes integers
+                </li>
+                <li>
+                    <i>LATS</i> - La latitude, secondes integers
+                </li>
+                <li>
+                    <i>LONS</i> - La longitude, secondes integers
+                </li>
+                <li>
+                    <i>LATMD</i> - La latitude, les minutes décimales
+                </li>
+                <li>
+                    <i>LONMD</i> - La longitude, les minutes décimales
+                </li>
+                <li>
+                    <i>LATSD</i> - La latitude, les secondes décimales
+                </li>
+                <li>
+                    <i>LONSD</i> - La longitude, les secondes décimales
+                </li>
+                <li>
+                    <i>TS</i> - le temps actuel (heures, minutes, secondes).
+                </li>
+            </ul>
+        <li>
+            <b>Activer le débogage</b>. Lorsque ce paramètre est activé, le logiciel
+            enregiste les informations de débogage dans un fichier
+            <i>debug.log</i>, placé dans le dossier GPSLogger situé à la
+            racine de la carte SD (réelle ou virtuel - en fonction de smartphone).
+            Ce fichier doit être envoyé aux développeurs en cas d'envoi
+            d'information sur l'erreur dans le logiciel.
+        </li>
+    </ul>
+</div>
+<div>
+    L'écran de configuration de paramètres de l'enregistrement vous permet de modifier les paramètres suivants:
+    <ul>
+        <li><b>Nouveau fichier</b>. Le logiciel peut enregistrer les traces dans le même fichier
+            ou créer un nouveau fichier - une fois par jour ou à chaque démarrage de l'enregistrement de traces
+            (lorsque on appuie sur la touche <i>Démarrer enregistrement</i> sur l'écran principal).
+            Par défaut, le nom du fichier correspond à la date et à l'heure de début de l'enregistrement
+            de traces, mais dans le cas de l'enregistrement dans un même fichier, on peut spécifier le nom exact du fichier.
+        </li>
+        <li>
+            <b>Préférer tours cellulaires</b>. Cette option permet de désactiver l'utilisation du GPS
+            et d'utiliser pour obtenir coordonnées les données de communications cellulaires et/ou Wi-Fi.
+            Il n'est pas recommandé d'utiliser cette option car la précision des coordonnées en ce mode est très faible.
+        </li>
+        <li>
+            <b>Intervalle d'enregistrement</b>. C'est la période d'enregistrement de la position GPS dans le(s) fichier(s).
+            La valeur minimale prise en charge - 1 seconde. Il n'est pas recommandé d'utiliser un intervalle de moins de 5 secondes
+            car cela entraîne la décharge de batterie trop rapide.
+        </li>
+        <li>
+            <b>Garder le GPS activé</b>. Ce paramètre détermine le comportement
+            du service - éteindre ou pas le GPS durant l'attente d'enregistrement de point suivant.
+            En raison de charges supplementaires liés à l'activation/la désactivation du GPS
+            il n'est pas recommandé d'arrêter le GPS en cas de la période d'enregistrement
+            reglé en plusieurs secondes ou minutes. Il est utile de désactiver GPS uniquement
+            si la période d'enregistrement est reglé en dizaines de minutes.
+        </li>
+        <li>
+            <b>Distance minimale entre les points</b>. Ce paramètre définit la valeur minimum
+            de changement de position géographique pour l'enregistrement d'un point.
+            En absence de changement de position à la distance superieure à celle-ci
+            le nouveau point sera ignoré. Il est recommandé de mettre ce paramètre
+            à quelques mètres pour éviter l'enregistrement de plusieurs points
+            en cas d'absence de mouvement. En raison du fait que la précision
+            de la définition de la position GPS est à quelques mètres, il est recommandé de
+            mettre ce paramètre de 3 à 6 mètres.
+        </li>
+        <li>
+            <b>Précision avant enregistrement</b>. Ce paramètre détermine le minimum
+            de précision de mesure de coordonnées considéré comme valide pour l'enregistrement
+            de point. Dans le cas où la précision de la définition est au dessous - le point sera ignoré.
+        </li>
+        <li>
+            <b>Temps d'attente de précision</b>. Dans le cas ou la précision
+            de la mesure de coordonnées est inferieure à la demandée pour enregistrement
+            de point - le programme attend une amélioration de la précision pendant ce délai.
+            Utiliser 0 pour ne pas attendre.
+        </li>
+        <li>
+            <b>Niveau critique de batterie</b>. Malgré toutes les optimisations,
+            GPS tracking draine la batterie assez rapidement surtôt sur les anciens
+            modèles de smartphones, équipés des modules GPS, qui consomment beaucoup.
+            Pour d'éviter une décharge complète du smartphone on peut utiliser ce parametre.
+            Le logiciel arrête le tracking quand le niveau de batterie atteint la valeur spécifié.
+        </li>
+    </ul>
+</div>
+<div>
+    L'écran de paramètres live-tracking vous permet d'accéder aux écrans de paramètres de différents
+    types de serveurs - OpenGTS, SkyLines, Livetrack24. En plus, les options suivantes,
+    valables pour tous les types de serveurs, sont disponibles:
+    <ul>
+        <li><b>Envoi de points groupé</b>.
+            Si ce paramètre est supérieur à 1 le logiciel tente de se connecter au serveur
+            live-tracking pour envoyer les coordonnées uniquement quand le nombre de points enregistrés
+            dans le tampon mémoire interne est superieur au valeur donné.
+            Par exemple, lors du réglage de la période d'enregistrement de la position GPS
+            en 2 minutes, et l'option d'envoi groupé en 5 le programme va lancer la
+            connexion au serveur une fois toutes les 10 minutes,
+            dans chaque session 5 points de coordonnées seront envoyés, les positions GPS
+            seront enregistrées avec une différence de 2 minutes. Une telle approche
+            permet d'économiser la batterie du smartphone, par contre
+            la pertinence de la position GPS sur le serveur
+            de live-trackiong sera pire que en cas de l'envoi normal.
+        </li>
+        <li><b>Taille de tampon mémoire hors ligne</b>.
+            Ce paramètre définit la taille de tampon memoire
+            pour stocker les points de position GPS lorsque
+            la connexion au serveur de live-tracking est interrompue
+            (ou lors d'envoi de points groupé).
+            Des que la connexion est rétablie (ou quand le nombre de points necessaire
+            dans le tampon est atteint) les points seront envoyés au serveur.
+            En cas de longue absence de communication avec le serveur et
+            le tampon plein, les vieux points sont supprimés pour donner la place aux nouvelles données.
+            Réglage de ce paramètre aux valeurs assez élevées peut provoquer
+            la manque de mémoire dans le smartphone et le crash du logiciel. Cependant, sur
+            les smartphones puissants avec beaucoup de RAM, ce paramètre peut être augmenté
+            afin de ne pas perdre les points lors de longue coupure de
+            communication avec le serveur.
+        </li>
+        <li>
+            <b>Temps d'attente maximal</b> et
+            <b>Cycles d'attente maximal</b>.
+            Ces deux paramètres définissent les conditions
+            de redémarrage de service  de l'application en cas de situation anormale
+            (souvent liée aux erreurs de fonctionnement du système d'exploitation
+            Android). Si depuis le temps spécifié (en secondes) ou depuis le
+            nombre spécifié de cycles d'écriture de
+            points le système ne tente pas d'envoyer les
+            points aux serveur de live-tracking - le service sera
+            redémarré. En règle générale, ce
+            redémarrage permet de déverrouiller l'envoi de points.
+        </li>
+    </ul>
+</div>
+<div>
+    L'écran de configuration de l'envoi automatique de fichiers permet de modifier les paramètres suivants:
+    <ul>
+        <li>
+            <b>Activation / désactivation d'envoi</b>;
+        </li>
+        <li>
+            <b>Fréquence d'envoi</b>;
+        </li>
+        <li>
+            <b>Activation / désactivation d'archivage de fichiers</b>. Comme tous les formats de fichiers
+            pris en charge par le logiciel, sont basés sur le texte - l'archivage permet de réduire
+            considérablement la taille de fichiers et, en conséquence, réduire la consommation
+            de trafic et la consommation de la batterie. Il est fortement recommandé de garder ce paramètre actif.
+        </li>
+    </ul>
+    En outre, à partir de cet écran, on peut accéder aux écrans de configuration des paramètres
+    d'envoi de fichiers à l'aide les différents protocoles - Email, OpenStreetMaps, DropBox et FTP.
+    Dans le cas de Email et FTP il suffit de spécifier les paramètres des serveurs,
+    dans le cas de OpenStreetMaps et DropBox il faut se connecter aux serveurs, car ils utilisent le protocole OAuth.
+</div>
+<div>
+    Pour des raisons de sécurité IL EST FORTEMENT DECONSEILLE d'utiliser les comptes E-Mails principaux
+    pour envoyer les traces. Le mot de passe spécifié dans les paramètres de GPSLogger Flight,
+    est enregistré sur votre smartphone en clair sans cryptage, en cas d'exportation des preferences
+    il est également exporté sous forme de texte et enregistré dans un fichier CSV placé dans
+    le dossier GPSLogger. Par conséquent, toutes les applications ayants l'accès à la carte SD,
+    peuvent accéder aux données du compte E-Mail. Si le protocole E-Mail est prevu
+    pour l'envoi de données - il faut enregistrer un compte specifique (sur l'un des
+    services publics - GMail, Yandex, ...) et utiliser ce compte uniquement pour l'envoi des données.
+</div>
+</body>
 </html>
