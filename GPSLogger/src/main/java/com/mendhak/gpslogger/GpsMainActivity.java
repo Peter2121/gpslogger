@@ -150,6 +150,7 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         Intent iin= getIntent();
         Bundle ext = iin.getExtras();
 
+        confImport = "";
         if(ext!=null)
         {
             confImport = ext.getString(CONF_DATA);
@@ -159,7 +160,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
 
         Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
         prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
-        confImport = "";
 
 //        if(confImport.length() > 1) list_perms.add(Manifest.permission.READ_ATTACHMENT); does not work!!
         PERM_READ_ATTACHMENT_GRANTED=true; // Temporary hack to avoid NULL
