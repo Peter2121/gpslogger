@@ -560,4 +560,5 @@
     <string name="notif_channel_status">Status channel</string>
     <string name="notif_channel_alert">Alert channel</string>
 
+    <string name="err_create_workdir">Cannot create work directory</string>
 </resources>

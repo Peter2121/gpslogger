@@ -146,24 +146,6 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         list_perms.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         setContentView(R.layout.main_fragment);
-        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
-        final File gpxFolder = new File(Session.work_path);
-        if (!gpxFolder.exists()) {
-            Utilities.LogDebug("Creating "+Session.work_path+" directory");
-            try {
-                if(!gpxFolder.mkdir()) {
-                    Utilities.LogDebug("Fatal: Cannot create working directory");
-                    this.StopAndUnbindServiceIfRequired();
-                    this.finish();
-                }
-            } catch (RuntimeException ex) {
-                Utilities.LogDebug("Cannot create working directory");
-                Utilities.LogError("onCreate", ex);
-            }
-        }
-        prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
-        confImport = "";
 
         Intent iin= getIntent();
         Bundle ext = iin.getExtras();
@@ -175,6 +157,10 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
                 else confImport="";
         }
 
+        Session.work_path = Environment.getExternalStorageDirectory() + File.separator + getString(R.string.work_dirname);
+        prefsio=new PrefsIO(this, PreferenceManager.getDefaultSharedPreferences(this), "gpslogger", Session.work_path);
+        confImport = "";
+
 //        if(confImport.length() > 1) list_perms.add(Manifest.permission.READ_ATTACHMENT); does not work!!
         PERM_READ_ATTACHMENT_GRANTED=true; // Temporary hack to avoid NULL
 
@@ -183,9 +169,31 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
         if(!hasPermissions()) {
             reqPermissions();
         }
+        else {
+            createWorkDir();
+            if(PERM_READ_ATTACHMENT_GRANTED) ImportSettings();
+        }
 
-        if(PERM_READ_ATTACHMENT_GRANTED) ImportSettings();
+        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 //        serviceIntent = new Intent(this, GpsLoggingService.class);
+    }
+
+    private void createWorkDir() {
+        final File gpxFolder = new File(Session.work_path);
+        if (!gpxFolder.exists()) {
+            Utilities.LogDebug("Creating " + Session.work_path + " directory");
+            try {
+                if (!gpxFolder.mkdir()) {
+                    Utilities.LogDebug("Fatal: Cannot create working directory");
+                    Toast.makeText(this, getString(R.string.err_create_workdir), Toast.LENGTH_LONG).show();
+                    this.StopAndUnbindServiceIfRequired();
+                    this.finish();
+                }
+            } catch (RuntimeException ex) {
+                Utilities.LogDebug("Cannot create working directory");
+                Utilities.LogError("onCreate", ex);
+            }
+        }
     }
 
     protected void ImportSettings() {
@@ -269,6 +277,10 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 reqPermissions();
             }
+        }
+        else {
+            createWorkDir();
+            if(PERM_READ_ATTACHMENT_GRANTED) ImportSettings();
         }
     }
 
