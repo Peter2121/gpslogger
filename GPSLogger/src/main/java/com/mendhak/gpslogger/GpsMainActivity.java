@@ -28,6 +28,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.*;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.BatteryManager;
@@ -936,8 +937,18 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
                 dialog.setContentView(R.layout.filelist);
                 ListView thelist = (ListView) dialog.findViewById(R.id.listViewFiles);
 
-                thelist.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
-                        android.R.layout.simple_list_item_single_choice, files));
+                final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                        android.R.layout.simple_list_item_single_choice, files) {
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                        text1.setTextColor(Color.WHITE);
+                        return view;
+                    }
+                };
+
+                thelist.setAdapter(arrayAdapter);
 
                 thelist.setOnItemClickListener(new OnItemClickListener()
                 {
@@ -1150,8 +1161,18 @@ public class GpsMainActivity extends SherlockFragmentActivity implements OnCheck
             dialog.setContentView(R.layout.filelist);
             ListView displayList = (ListView) dialog.findViewById(R.id.listViewFiles);
 
-            displayList.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
-                    android.R.layout.simple_list_item_single_choice, files));
+            final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                    android.R.layout.simple_list_item_single_choice, files) {
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                    text1.setTextColor(Color.WHITE);
+                    return view;
+                }
+            };
+
+            displayList.setAdapter(arrayAdapter);
 
             displayList.setOnItemClickListener(new OnItemClickListener()
             {

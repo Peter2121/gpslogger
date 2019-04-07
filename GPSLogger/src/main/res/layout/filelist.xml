@@ -3,9 +3,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="wrap_content" android:layout_height="wrap_content"
 	android:orientation="vertical">
-	<ListView android:id="@+id/listViewFiles" android:divider="#ffffff"
-		android:dividerHeight="1dp" android:footerDividersEnabled="true"
-		android:headerDividersEnabled="true" android:gravity="center"
-		android:choiceMode="singleChoice" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" />
-</LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewFiles"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_dark"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="true"
+        android:gravity="center"
+        android:headerDividersEnabled="true"
+        android:scrollbars="vertical"
+    />
+
+    </LinearLayout>
+
