@@ -3,3 +3,8 @@
 /.idea/workspace.xml
 /GPSLogger/src/main/res/values/private.xml
 .DS_Store
+/actionbarsherlock/bin/
+/actionbarsherlock/build/
+/actionbarsherlock/gen/
+/actionbarsherlock/.settings/
+/actionbarsherlock/target/
