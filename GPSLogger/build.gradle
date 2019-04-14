@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 26
-        versionCode 20190407
-        versionName '20190407FT'
+        versionCode 20190414
+        versionName '20190414FT'
     }
     signingConfigs {
         release {

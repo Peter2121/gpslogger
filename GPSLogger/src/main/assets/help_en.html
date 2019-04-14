@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>GPSLogger Flight</title>
+</head>
+<body lang="en-GB">
+<h3>GPSLogger Flight</h3>
+<div>
+    The software is designed to record the geographical position of your smartphone
+    using GPS, GLONASS, etc. (depending on the support of these systems by the smartphone).
+    It is also possible to use positioning data from GPRS / 3G antennas
+    and Wi-Fi access points (however, such approach is not recommended due to the fairly low accuracy of the data).
+    The data is saved in the files of the GPSLogger folder located in the root of smartphone's SD card
+    (real or virtual - depending on smartphone). The following file formats are supported: KML, IGC, GPX, TXT.
+    Also, the geolocation data can be sent to other servers using different Internet protocols.
+    Such sending is possible at the time of track recording or at the end of the recording.
+    It is possible to send the geolocation data using the following methods:
+    <ul>
+        <li>
+            Real-time tracking to OpenGTS, Livetrack24, SkyLines servers (it's possible to send each point separately,
+            or by groups - to optimize the battery consumption);
+        </li>
+        <li>
+            Periodic sending of track file by e-mail;
+        </li>
+        <li>
+            Periodic upload of track file by FTP protocol;
+        </li>
+        <li>
+            Periodic upload of track file to the DropBox server;
+        </li>
+        <li>
+            Periodic upload of track file to the OpenStreetMaps server.
+        </li>
+    </ul>
+    Additionally, it is possible to send coordinates and track files in manual mode, using any software
+    available on the smartphone, which supports sending data in text format or sending files (SMS, WhatsApp, GMail, Viber, etc.).
+</div>
+<div>
+    GPSLogger Flight software works on smartphones and tablets with Android operating system installed.
+    Minimal version of Android, where the software runs - 2.3.3. Minimal version where the software is supported - 4.4.4.
+    The software neither needs nor uses Google Services. When you start GPSLogger Flight for the first time,
+    geolocation services access permissions and SD memory card access permissions are requested.
+    These permissions are <b>absolutely indispensable</b> for normal operation of the software.
+    Additionally the software needs to access files attached to e-mails to directly import the configuration from the mails.
+</div>
+<div>
+    The software GPSLogger Flight provides many personal settings, almost all recording parameters
+    and live tracking parameters can be customized. Configuration settings can be saved to a text file with the CSV extension.
+    This file can be easily modified in a text editor or spreadsheet editing software (for example, Excel).
+    GPSLogger Flight supports importing data from CSV file placed in smartphone's file system
+    (in case of presence of a file explorer), attached to an e-mail or placed directly into the GPSLogger folder
+    in the root of SD card (real or virtual - depending on smartphone).
+</div>
+<div>
+    GPSLogger Flight software is optimized to work together with the OpenGTS server
+    available on <a href="https://gts.flytrace.com/">flytrace.com</a>.
+    After a registration on the site, an e-mail with the configuration file already prepared and optimized for this service
+    will be sent to an address used for the registration. Importing the file into the software allows you to
+    immediately start the tracking without having to enter all the parameters manually.
+    Using GPSLogger Flight with other OpenGTS servers is possible, but requires manual configuration, some problems
+    could be observed in this case car altitude information is not processed by OpenGTS servers by default.
+</div>
+<div>
+    There are two modes of operation of the settings part in the GPSLogger Flight software - simple and advanced.
+    The <i>Preference Mode</i> menu item placed on the main screen of <i>Settings</i>
+    screen (<i>Menu -&gt; Settings</i>) is provided to be able to change the mode.
+    On the same screen, you can directly access the <i>Location</i> section Android system settings.
+    In the advanced mode of settings management on the same screen one can activate/deactivate the following parameters:
+
+    <ul>
+        <li>
+            <b> Log to GPX / KML / IGC / TXT files </b>
+        </li>
+        <li>
+            <b> Log to OpenGTS / SkyLines / Livetrack24 servers (live-tracking) </b>
+        </li>
+    </ul>
+    Also, from this screen you can access the following settings management screens:
+    <ul>
+        <li>
+            <b>General Options;</b>
+        </li>
+        <li>
+            <b>Logging Details</b> (used for tracking to files, and for live-tracking);
+        </li>
+        <li>
+            <b>Live tracker settings</b> - common settings for live-tracking and access
+            to configuration screens of supported live-tracking servers - OpenGTS, SkyLines, Livetrack24;
+        </li>
+        <li>
+            <b>Auto Send Settings</b> - common settings for automatic sending of track files
+            and access to configuration screens of the E-Mail, FTP, Dropbox, OpenStreetMaps servers.
+        </li>
+        <li>
+            <b>Personal Data</b> - these data are used when saving tracks to IGC files;
+        </li>
+    </ul>
+</div>
+<div>
+    The <i>General Options</i> screen can be used to change the following settings:
+    <ul>
+        <li>
+            <b>Use modular display</b> - use an alternative interface with the information
+            about speed, altitude, finesse and direction of movement readable easily.
+        </li>
+        <li>
+            <b>Force screen on</b>. Enabling this option avoids
+            the automatic turning off of the screen.
+            Activating this mode dramatically increases energy consumption.
+        </li>
+        <li>
+            <b>Start on bootup</b>. This option activates the automatic startup of the application
+            and launching GPS track logging when the system boots.
+        </li>
+        <li>
+            <b>Use Imperial units</b> - activates the use of feets, miles etc. as units of measurement
+        </li>
+        <li>
+            <b>Message template</b>. When the coordinates are sent in a text messages (e-mail, SMS, WhatsApp, etc.)
+            the message format can be customized (for example, to send a link to the location on the Google Maps or Mappy).
+            The message template serves for this. In the text, you can use some special variables that will be replaced
+            by GPS coordinates in different formats. The following variables are available:
+            <ul>
+                <li>
+                    <i>LATDD</i> - The latitude, decimal degrees
+                </li>
+                <li>
+                    <i>LONDD</i> - The longitude, decimal degrees
+                </li>
+                <li>
+                    <i>LATD</i> - The latitude, integer degrees
+                </li>
+                <li>
+                    <i>LOND</i> - The longitude, integer degrees
+                </li>
+                <li>
+                    <i>LATM</i> - The latitude, integer minutes
+                </li>
+                <li>
+                    <i>LONM</i> - The longitude, integer minutes
+                </li>
+                <li>
+                    <i>LATS</i> - The latitude, integer seconds
+                </li>
+                <li>
+                    <i>LONS</i> - The longitude, integer seconds
+                </li>
+                <li>
+                    <i>LATMD</i> - The latitude, decimal minutes
+                </li>
+                <li>
+                    <i>LONMD</i> - The longitude, decimal minutes
+                </li>
+                <li>
+                    <i>LATSD</i> - The latitude, decimal seconds
+                </li>
+                <li>
+                    <i>LONSD</i> - The longitude, decimal seconds
+                </li>
+                <li>
+                    <i>TS</i> - The timestamp (hours, minutes, seconds).
+                </li>
+            </ul>
+        <li>
+            <b>Write to debug file</b>. When this setting is enabled, the software
+            writes a lot of debug information to the file <i>debug.log</i>,
+            placed in the GPSLogger folder located at the
+            root of the SD card (real or virtual - depending on smartphone).
+            This file must be sent to the developers in case of sending
+            information about the error in the software.
+        </li>
+    </ul>
+</div>
+<div>
+    The <i>Logging details</i> screen can be used to change the following settings:
+    <ul>
+        <li><b>New file creation</b>. The software can save the traces in the same file
+            or create a new file - once a day or each time the trcking is started
+            (when you press the <i>Start Logging</i> button on the main screen).
+            By default, the file name used is the date and time of the tracking start
+            but in the case of writing into the same file, the file name can be specified.
+        </li>
+        <li>
+            <b>Prefer celltowers</b>. This option disables using of GPS
+            and forces using of celltowers and/or Wi-Fi access points to obtain coordinates.
+            This optionis is not recommended because the coordinate accuracy in this mode is very low.
+        </li>
+        <li>
+            <b>Time before logging</b>. This time defines the frequency of GPS position recording in file(s).
+            Minimum possible value - 1 second. It is not recommended to use an interval of less than 5 seconds
+            because this causes very fast battery discharge.
+        </li>
+        <li>
+            <b>Keep GPS on between fixes</b>. This parameter determines the behavior
+            of service - turn the GPS on or off while waiting for next tracking point.
+            Due to additional charges related to GPS activation/deactivation
+            it is not recommended to turn off GPS in case of the tracking interval
+            set in some seconds or minutes. It is useful to disable GPS only
+            if the tracking interval is set in tens of minutes.
+        </li>
+        <li>
+            <b>Distance before logging</b>. This parameter sets the minimum value
+            for geographical position change for logging of a point.
+            In case of absence of position change for the distance greater than this value
+            the new point will be ignored. It is recommended to set this parameter
+            to few meters to avoid recording multiple points
+            in case of absence of movement. Due to the fact that
+            GPS position precision is normally few meters, it is recommended to
+            set this parameter between 3 and 6 meters.
+        </li>
+        <li>
+            <b>Accuracy before logging</b>. This parameter determines the minimum
+            accuracy of GPS position measurement considered as valid for recording a
+            point. In case of the accuracy is below - the point will be ignored.
+        </li>
+        <li>
+            <b>Time interval for accuracy</b>. In case of the GPS position accuracy
+            is less than the required for logging - the program waits an improvement
+            of the accuracy during this time. Use 0 to not wait.
+        </li>
+        <li>
+            <b>Critical Battery Level</b>. Despite all the optimizations,
+            GPS tracking drains the battery rather quickly, mostly on old
+            Smartphone models, equipped by GPS modules consuming a lot of energy.
+            To avoid a full discharge of the smartphone this parameter can be used.
+            The software stops tracking when the battery level reaches the specified value.
+        </li>
+    </ul>
+</div>
+<div>
+    The <b>Live-tracker settings</b> screen allows you to access the settings of different
+    types of servers - OpenGTS, SkyLines, Livetrack24. Additionally, the following options,
+    valid for all types of live-tracking servers, are available:
+    <ul>
+        <li><b>Send points by group</b>.
+            If this parameter is greater than 1 the software tries to connect to the live-tracking
+            server and send the coordinates only when the number of points saved
+            in the internal memory buffer is greater than the given value.
+            For example, when the GPS position tracking period
+            is set to 2 minutes, and <b>Send points by group</b> is set to 5 the program starts the
+            connection to the server once in 10 minutes,
+            in each session 5 coordinate points will be sent, the GPS positions
+            will be saved with a difference of 2 minutes. Such approach
+            saves the battery of the smartphone, however
+            the relevance of the GPS position on the server
+            live-tracking will be worse than in the case of normal sending.
+        </li>
+        <li><b>Offline buffer size</b>.
+            This parameter sets the size of memory buffer
+            to store the GPS position points when
+            the connection to the live-tracking server is impossible
+            (or when sending points by group is activated).
+            As soon as the connection is restored (or when the number of points needed
+            in the buffer is reached) the points will be sent to the server.
+            In case of long absence of communication with the server and
+            full buffer, old points will be removed to make room for the new data.
+            Setting this parameter to too high values ​​can cause
+            the lack of memory of the smartphone and can crash the software. However, on
+            powerful smartphones with a lot of RAM, this setting can be increased
+            to avoid losing points during long absense of
+            communication with the server.
+        </li>
+        <li>
+            <b>Max wait time</b> et
+            <b>Max wait cycles</b>.
+            These two parameters define the conditions
+            to restart service of the application in case of abnormal situation
+            (often related to Android operating system errors).
+            If since the specified time (in seconds) or since
+            specified number of points write cycles
+            the system is not trying to send the
+            points to the live-tracking server - the service will be
+            restarted. Normally, this restart unlocks the tracking.
+        </li>
+    </ul>
+</div>
+<div>
+    The <b>Auto send, email and upload</b> screen allows you to change the following settings:
+    <ul>
+        <li>
+            <b>Enable/Disable automatic sending of files</b>;
+        </li>
+        <li>
+            <b>Frequency of sending</b>;
+        </li>
+        <li>
+            <b>Send zip file</b>. When this setting is active - the files will
+            be archived before sending.	As all file formats,
+            supported by the software, are text-based  - file archiving
+            considerably reduces the file size and, consequently, reduces
+            traffic consumption and battery consumption. It is strongly recommended
+            to keep this setting active.
+        </li>
+    </ul>
+    Also, from this screen you can access the settings management screens
+    for the following protocols, supported by GPSLogger Flight: Email,
+    OpenStreetMaps, DropBox et FTP. In case of Email and FTP you should just
+    specify the server settings, in case of OpenStreetMaps and DropBox you have
+    to connect to the servers using your login/password because of using the OAuth protocol.
+</div>
+<div>
+    For the security reasons IT IS STRONGLY DISCOURAGED to use the principal E-Mail account
+    to send the files. The E-Mail account password, specified in the GPSLogger Flight settings,
+    is saved on your smartphone by Android OS without encryption, moreover if the preferences are exported
+    the password is also exported as clear text and saved into a CSV file, placed into
+    the GPSLogger folder of SD card. Therefore, all applications having access to the SD card,
+    can access the login data of the E-Mail account. If the E-Mail protocol is planned
+    for sending data - you have to register a specific account (on one of the
+    public services - GMail, Yandex, ...) and use this account only for sending data by GPSLogger Flight.
+</div>
+</body>
+</html>

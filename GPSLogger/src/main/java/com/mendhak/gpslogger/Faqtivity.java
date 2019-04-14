@@ -63,6 +63,9 @@ public class Faqtivity extends SherlockActivity
             case "fr":
                 fileName = "help_fr.html";
                 break;
+            case "en":
+                fileName = "help_en.html";
+                break;
             default:
                 break;
         }
