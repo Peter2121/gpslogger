@@ -3,9 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GPSLogger/GPSLogger.iml" filepath="$PROJECT_DIR$/GPSLogger/GPSLogger.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GPSLoggerFlight.iml" filepath="$PROJECT_DIR$/GPSLoggerFlight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/actionbarsherlock/actionbarsherlock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarsherlock-fest/actionbarsherlock-fest.iml" filepath="$PROJECT_DIR$/actionbarsherlock-fest/actionbarsherlock-fest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionbarsherlock-i18n/actionbarsherlock-i18n.iml" filepath="$PROJECT_DIR$/actionbarsherlock-i18n/actionbarsherlock-i18n.iml" />
       <module fileurl="file://$PROJECT_DIR$/gpslogger-para-peter.iml" filepath="$PROJECT_DIR$/gpslogger-para-peter.iml" />
     </modules>
   </component>
 </project>
-
